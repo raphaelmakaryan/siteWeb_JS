@@ -1,0 +1,21 @@
+- feat → Changes about addition or removal of a feature. Ex: `feat: add table on landing page`, `feat: remove table from landing page`
+
+- fix → Correction du bug, suivi du bug. Correction du bug, suivi du bug. Ex: `fix: illustration overflows in mobile view`
+
+- docs → Update documentation (README.md)
+
+- style → Mettre à jour le style et ne modifier aucune logique dans le code (réorganiser les importations, corriger les espaces, supprimer les commentaires)
+
+- chore → Installing new dependencies, or bumping deps
+
+- refactor → Pas beaucoup de changement de code, c'est donc une refactorisation
+
+- ci → Update github workflows, husky
+
+- test → Update testing suite, cypress files
+
+- revert → when reverting commits
+
+- perf → Fixing something regarding performance (deriving state, using memo, callback)
+
+- vercel → Blank commit to trigger vercel deployment. Ex: `vercel: trigger deployment`
