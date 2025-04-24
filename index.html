@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Site Web</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="./public/style/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="">Index</a>
+      <a href="">Gallerie</a>
+      <a href="">Jeux</a>
+    </header>
+
+    <section id="feedMain" class="mt-4">
+      <div id="feedPage">
+        <div id="feedOptions" class="mb-2">
+          <button type="button" value="Recharger" id="buttonRecharg" onclick="rechargPost(5)">Recharger</button>
+        </div>
+      </div>
+    </section>
+
+    <script src="./public/js/index.js"></script>
+  </body>
 </html>
