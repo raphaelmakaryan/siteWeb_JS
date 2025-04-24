@@ -13,6 +13,12 @@ a {
     color: white;
 }
 
+.noneButtons {
+    background-color: unset !important;
+    border-color: unset !important;
+    border-width: 0 !important;
+}
+
 /*#endregion BODY*/
 
 /*#region MYRAPHSTRAP*/
@@ -110,12 +116,6 @@ header {
     justify-content: center;
 }
 
-#feedMain {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 #feedOptions {
     display: flex;
     flex-direction: row;
@@ -155,3 +155,100 @@ header {
 }
 
 /*#endregion FEED*/
+
+/*#region GALERIE*/
+
+#galerieMain {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#galeriePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.forGalerieImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.galerieImage {
+    width: 90%;
+}
+
+.iconOptionsGalerie {
+    width: 90%;
+}
+
+#galerieOptions {
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.activeOptions {
+    background-color: red !important;
+}
+
+/*
+.forFeedPost {
+    border: solid 2px black;
+    display: flex;
+    flex-direction: column;
+}
+
+.others {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.question {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.optionsCreatePost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#feedCreatePost {
+    border: solid 2px orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    */
+/*#endregion GALERIE*/
+
+
+/*#region MEDIAQUERYS*/
+
+/*! Tel*/
+@media only screen and (max-width: 992px) {
+    #galerieOptions {
+        display: none;
+    }
+}
+
+/*! PC*/
+@media only screen and (min-width: 992px) {
+    #galeriePage {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/*#endregion MEDIAQUERYS*/
