@@ -19,3 +19,5 @@
 - perf → Fixing something regarding performance (deriving state, using memo, callback)
 
 - vercel → Blank commit to trigger vercel deployment. Ex: `vercel: trigger deployment`
+
+https://www.conventionalcommits.org/en/v1.0.0/

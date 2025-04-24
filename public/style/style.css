@@ -1,0 +1,157 @@
+/*#region BODY*/
+body {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: white;
+}
+
+/*#endregion BODY*/
+
+/*#region MYRAPHSTRAP*/
+
+.mt-1 {
+    margin-top: 1rem !important;
+}
+
+.mt-2 {
+    margin-top: 2rem !important;
+}
+
+.mt-3 {
+    margin-top: 3rem !important;
+}
+
+.mt-4 {
+    margin-top: 4rem !important;
+}
+
+.mt-5 {
+    margin-top: 5rem !important;
+}
+
+.mb-1 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-2 {
+    margin-bottom: 2rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 3rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 4rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 5rem !important;
+}
+
+.ms-1 {
+    margin-left: 1rem !important;
+}
+
+.ms-2 {
+    margin-left: 2rem !important;
+}
+
+.ms-3 {
+    margin-left: 3rem !important;
+}
+
+.ms-4 {
+    margin-left: 4rem !important;
+}
+
+.ms-5 {
+    margin-left: 5rem !important;
+}
+
+/*#endregion MYRAPHSTRAP*/
+
+/*#region HEADER*/
+header {
+    padding: 1rem;
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#dropdownHeader {
+    background-color: green;
+}
+
+#dropdownHeaderList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+
+/*#endregion HEADER*/
+
+/*#region FEED*/
+#feedMain {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#feedMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#feedOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.forFeedPost {
+    border: solid 2px black;
+    display: flex;
+    flex-direction: column;
+}
+
+.others {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.question {
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.optionsCreatePost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#feedCreatePost {
+    border: solid 2px orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*#endregion FEED*/
