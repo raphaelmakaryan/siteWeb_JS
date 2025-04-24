@@ -20,6 +20,37 @@
 
     <section id="feedMain" class="mt-4">
       <div id="feedPage">
+        <div id="feedCreatePost" class="mb-2">
+          <h2>Crée un post</h2>
+          <form onsubmit="createPostManuel()">
+            <div class="optionsCreatePost mb-1">
+              <label for="questionCreatePost">Question :</label>
+              <input
+                type="text"
+                id="questionCreate"
+                name="questionCreatePost"
+                required
+              />
+            </div>
+            <div class="optionsCreatePost mb-1">
+              <label for="questionCreatePost">Réponse :</label>
+              <input
+                type="text"
+                id="reponseCreate"
+                name="reponseCreatePost"
+                required
+              />
+            </div>
+            <div class="optionsCreatePost mb-1">
+              <label for="questionCreatePost">ID :</label>
+              <input type="text" id="idCreate" name="idCreatePost" required />
+            </div>
+
+            <div class="optionsCreatePost mb-1">
+              <input type="submit" value="Ajouter !" />
+            </div>
+          </form>
+        </div>
         <div id="feedOptions" class="mb-2">
           <button
             type="button"

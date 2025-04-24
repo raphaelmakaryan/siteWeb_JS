@@ -141,4 +141,17 @@ header {
     margin: 0;
 }
 
+.optionsCreatePost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#feedCreatePost {
+    border: solid 2px orange;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /*#endregion FEED*/

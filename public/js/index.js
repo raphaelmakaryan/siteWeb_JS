@@ -45,8 +45,19 @@ buttonDropDown.addEventListener("click", function () {
 /*#endregion MENU*/
 
 
+/*#region CREATEPOST*/
+function createPostManuel() {
+    let question = document.getElementById("questionCreate").value
+    let reponse = document.getElementById("reponseCreate").value
+    let id = document.getElementById("idCreate").value
 
-/*#region BACKUP*/
-/*
-*/
-/*#endregion BACKUP*/
+    let html = `
+    <div class="forFeedPost mb-1" id="feedPost">
+    <p class="question mt-1 ms-1">Question : ${question}</p>
+    <p class="mt-1 ms-1">Réponse : ${reponse}</p>
+    <p class="mt-1 ms-1 mb-1">ID : ${id}</p>
+    </div>
+`;
+    feedPage.innerHTML += html;
+}
+/*#endregion CREATEPOST*/
