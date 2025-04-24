@@ -8,15 +8,27 @@
   </head>
   <body>
     <header>
-      <a href="">Index</a>
-      <a href="">Gallerie</a>
-      <a href="">Jeux</a>
+      <div id="dropdownHeader">
+        <button id="dropdownHeaderMain">Menu</button>
+        <div id="dropdownHeaderList">
+          <a href="" class="mt-1 mb-1">Index</a>
+          <a href="" class="mt-1 mb-1">Gallerie</a>
+          <a href="" class="mt-1 mb-1">Jeux</a>
+        </div>
+      </div>
     </header>
 
     <section id="feedMain" class="mt-4">
       <div id="feedPage">
         <div id="feedOptions" class="mb-2">
-          <button type="button" value="Recharger" id="buttonRecharg" onclick="rechargPost(5)">Recharger</button>
+          <button
+            type="button"
+            value="Recharger"
+            id="buttonRecharg"
+            onclick="rechargPost(5)"
+          >
+            Recharger
+          </button>
         </div>
       </div>
     </section>

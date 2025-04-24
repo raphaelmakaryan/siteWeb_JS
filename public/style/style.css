@@ -9,6 +9,10 @@ p {
     padding: 0;
 }
 
+a {
+    color: white;
+}
+
 /*#endregion BODY*/
 
 /*#region MYRAPHSTRAP*/
@@ -84,6 +88,17 @@ header {
     justify-content: space-around;
 }
 
+#dropdownHeader {
+    background-color: green;
+}
+
+#dropdownHeaderList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+}
+
 /*#endregion HEADER*/
 
 /*#region FEED*/
@@ -101,7 +116,7 @@ header {
     justify-content: center;
 }
 
-#feedOptions{
+#feedOptions {
     display: flex;
     flex-direction: row;
     justify-content: center;

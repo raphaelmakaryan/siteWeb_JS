@@ -24,38 +24,29 @@ async function createPostAPI(nombre) {
         feedPage.innerHTML += html;
     }
 }
-
 createPostAPI(5)
 /*#endregion API*/
 
+/*#region MENU*/
+let buttonDropDown = document.getElementById("dropdownHeaderMain")
+let buttonDropDownList = document.getElementById("dropdownHeaderList")
+let isActive = false;
 
+buttonDropDown.addEventListener("click", function () {
+    if (isActive) {
+        isActive = false
+        buttonDropDownList.style.display = "none"
+    } else if (!isActive) {
+        isActive = true
+        buttonDropDownList.style.display = "flex"
+    }
+});
+
+/*#endregion MENU*/
 
 
 
 /*#region BACKUP*/
 /*
-
-async function createPostAPI() {
-const response = await fetch("https://v2.jokeapi.dev/joke/Any?lang=fr");
-const post = await response.json();
-let html = `
-    <div class="feedPost mb-1">
-    <p class="question mt-1 ms-1">Question : ${post.setup}</p>
-    <p class="mt-1 ms-1">Réponse : ${post.delivery}</p>
-    <p class="mt-1 ms-1 mb-1">ID : ${post.id}</p>
-    </div>
-`;
-feedPage.innerHTML += html;
-}
-
-
-while (nombre < 3) {
-nombre++
-console.log(nombre)
-//createPostAPI()
-}
-
-
-
 */
 /*#endregion BACKUP*/
