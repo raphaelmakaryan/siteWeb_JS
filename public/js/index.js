@@ -7,6 +7,16 @@ function getURL() {
 }
 /*#endregion GETURL*/
 
+function debugFunctions(debug1, debug2) {
+    console.log("------------1-------------")
+    console.log(debug1)
+    console.log("------------1-------------")
+    console.log("------------2-------------")
+    console.log(debug2)
+    console.log("------------2-------------")
+}
+
+
 /*#region API*/
 let feedPage = document.getElementById("feedPage")
 
@@ -168,3 +178,43 @@ async function deleteImage(id) {
     });
 }
 /*#endregion DELETE IMAGE*/
+
+
+/*#endregion PUB*/
+
+let moving = true, allImagesPub = document.getElementsByClassName("carrouselPub"), totalImagesPub = allImagesPub.length, slide = 0;
+
+setInterval(function () {
+    moving = false
+    if (!moving) {
+        moveNext();
+    }
+}, 2000);
+
+function moveNext() {
+    console.log(moving)
+    if (!moving) {
+        if (slide === (totalImagesPub - 1)) {
+            slide = 0;
+        } else {
+            slide++;
+        }
+        moveCarouselTo(slide);
+    }
+}
+
+function moveCarouselTo(slide) {
+    if (!moving) {
+        let previousSlide = (slide === 0) ? (totalImagesPub - 1) : (slide - 1);
+        let nextSlide = (slide === (totalImagesPub - 1)) ? 0 : (slide + 1);
+
+        for (let i = 0; i < totalImagesPub; i++) {
+            allImagesPub[i].classList.remove("carrouselPubSee");
+        }
+
+        allImagesPub[slide].classList.add("carrouselPubSee");
+        allImagesPub[previousSlide].classList.add("carrouselPubPrev");
+        allImagesPub[nextSlide].classList.add("carrouselPubNext");
+    }
+}
+/*#endregion PUB*/

@@ -232,6 +232,56 @@ header {
     align-items: center;
 }
 
+#galeriePubCarouselWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+    /*width: 90%;*/
+}
+
+#galeriePubCarouselWrap * {
+    /*box-sizing: border-box;*/
+}
+
+#galeriePubCarousel {
+    transform-style: preserve-3d;
+
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.carrouselPub {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin: auto;
+    padding: 1rem 4rem;
+    z-index: 100;
+    transition: transform .5s, opacity .5s, z-index .5s;
+}
+
+.carrouselPubSee {
+    opacity: 1;
+    position: relative;
+    z-index: 900;
+}
+
+/*
+#galeriePubCarouselWrap {
+    overflow: hidden;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+*/
+
 /*#endregion GALERIE*/
 
 
