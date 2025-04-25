@@ -122,12 +122,13 @@ header {
     justify-content: center;
 }
 
-
 .forFeedPost {
     border: solid 2px black;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
 
 .others {
     display: flex;
@@ -152,6 +153,16 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#buttonDeleteFeed {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.iconDeleteFeed {
+    width: 8%;
 }
 
 /*#endregion FEED*/
@@ -203,43 +214,11 @@ header {
     align-items: center;
 }
 
-#optionsForImageSee{
+#optionsForImageSee {
     display: flex;
     flex-direction: row;
 }
 
-/*
-.forFeedPost {
-    border: solid 2px black;
-    display: flex;
-    flex-direction: column;
-}
-
-.others {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.question {
-    font-size: 1rem;
-    padding: 0;
-    margin: 0;
-}
-
-.optionsCreatePost {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#feedCreatePost {
-    border: solid 2px orange;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-    */
 /*#endregion GALERIE*/
 
 
@@ -253,8 +232,6 @@ header {
 }
 
 /*! PC*/
-@media only screen and (min-width: 992px) {
-    
-}
+@media only screen and (min-width: 992px) {}
 
 /*#endregion MEDIAQUERYS*/
