@@ -168,8 +168,6 @@ header {
 
 #galeriePage {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .forGalerieImage {
@@ -195,6 +193,18 @@ header {
 
 .activeOptions {
     background-color: red !important;
+}
+
+.mosaique {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.colonne {
+    flex-direction: column;
+    align-items: center;
 }
 
 /*
@@ -243,12 +253,7 @@ header {
 
 /*! PC*/
 @media only screen and (min-width: 992px) {
-    #galeriePage {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+    
 }
 
 /*#endregion MEDIAQUERYS*/

@@ -97,38 +97,26 @@ if (getURL() === 'galerie.html') {
 
     let buttonsMos = document.getElementById("optionsMosGalerie")
     let buttonsCol = document.getElementById("optionsColGalerie")
+    let galeriePage = document.getElementById("galeriePage")
 
-    function clickOnMos() {
-        console.log("mos")
-        if (optionsGalerie != "mos") {
-            buttonsMos.classList.add("activeOptions")
-        } else {
-            optionsGalerie = "col"
-            buttonsMos.classList.remove("activeOptions")
-        }
-    }
-
-    function clickOnCol() {
-        if (optionsGalerie != "col") {
-            buttonsCol.classList.add("activeOptions")
-        } else {
+    buttonsMos.addEventListener("click", function () {
+        if (optionsGalerie !== "mos") {
             optionsGalerie = "mos"
+            buttonsMos.classList.add("activeOptions")
             buttonsCol.classList.remove("activeOptions")
+            galeriePage.classList.remove("colonne")
+            galeriePage.classList.add("mosaique")
         }
-    }
+    });
+
+    buttonsCol.addEventListener("click", function () {
+        if (optionsGalerie !== "col") {
+            optionsGalerie = "col"
+            buttonsCol.classList.add("activeOptions")
+            buttonsMos.classList.remove("activeOptions")
+            galeriePage.classList.remove("mosaique")
+            galeriePage.classList.add("colonne")
+        }
+    });
 }
 /*#endregion OPTIONSGALERIE*/
-
-/*#region BACKUP*/
-/*
-const currentOptions = localStorage.getItem('image');
-
-if (optionsGalerie != "mos" && currentOptions) {
-    const currentOptions = document.documentElement.getAttribute('data-image');
-    const newOption = currentOptions === "mos";
-
-    document.documentElement.setAttribute('data-image', newOption);
-    localStorage.setItem('image', newOption);
-}
-    */
-/*#endregion BACKUP*/
