@@ -16,9 +16,11 @@ async function createPostAPI(nombre) {
         const post = await response.json();
         let html = `
     <div class="forFeedPost mb-1" id="feedPost">
+    <div>
     <p class="question mt-1 ms-1">Question : ${post.setup}</p>
     <p class="mt-1 ms-1">Réponse : ${post.delivery}</p>
     <p class="mt-1 ms-1 mb-1">ID : ${post.id}</p>
+    </div>
     </div>
 `;
         feedPage.innerHTML += html;
@@ -54,30 +56,32 @@ buttonDropDown.addEventListener("click", function () {
 });
 /*#endregion MENU*/
 
-
 /*#region CREATEPOST*/
-if (getURL() === 'index.html') {
-    function createPostManuel() {
-        let question = document.getElementById("questionCreate").value
-        let reponse = document.getElementById("reponseCreate").value
-        let id = document.getElementById("idCreate").value
+function createPostManuel() {
+    let question = document.getElementById("questionCreate").value
+    let reponse = document.getElementById("reponseCreate").value
+    let id = document.getElementById("idCreate").value
+    let forDelete = `Man${id}`
 
-        let html = `
-    <div class="forFeedPost mb-1" id="feedPost">
-    <p class="question mt-1 ms-1">Question : ${question}</p>
-    <p class="mt-1 ms-1">Réponse : ${reponse}</p>
-    <p class="mt-1 ms-1 mb-1">ID : ${id}</p>
-    </div>
-`;
-        feedPage.innerHTML += html;
-    }
+    let html = ` <div class="forFeedPost mb-1" id="feedPost" data-value="${forDelete}">
+        <div style="width:100%;">
+          <p class="question mt-1 ms-1">Question : ${question}</p>
+          <p class="mt-1 ms-1">Réponse :  ${reponse} </p>
+          <p class="mt-1 ms-1 mb-1">ID : ${id} </p>
+        </div>
+        <div style='display:flex;'>
+             <button type="button" class="noneButtons" id='buttonDeleteFeed' onclick="deletePost('${forDelete}')"><img src="./public/imgs/delete.png" class='iconDeleteFeed' alt=""></button>
+          </div>
+      </div>
+      `
+    feedPage.innerHTML += html;
 }
 /*#endregion CREATEPOST*/
 
 /*#region CREATEIMAGEGALERIE*/
 async function createImageGalerie(nombre, galeriePage) {
     for (let index = 0; index < nombre; index++) {
-        let html = `<div class="forGalerieImage mb-1">
+        let html = `<div class="forGalerieImage mb-1" id="galeriePost">
                 <img src="./public/imgs/galerie/default.webp" alt="" class="galerieImage">
             </div>
 `;
@@ -93,6 +97,7 @@ if (getURL() === 'galerie.html') {
 /*#region OPTIONSGALERIE*/
 if (getURL() === 'galerie.html') {
     let optionsGalerie = "mos" // mos | col
+    let comptForDelete = 0;
     let galeriePage = document.getElementById("galeriePage")
     let buttonsMos = document.getElementById("optionsMosGalerie")
     let imgButtonMos = document.getElementById("optionsMosImage")
@@ -123,7 +128,43 @@ if (getURL() === 'galerie.html') {
     });
 
     addImage.addEventListener("click", async function () {
-        await createImageGalerie(1, galeriePage)
+        comptForDelete++;
+        let forDelete = `Man${comptForDelete}`
+        let html = `  
+  <div class="forGalerieImage mb-1" id="galeriePost"  data-value="${forDelete}">
+   <button type="button" class="noneButtons buttonsDeleteGalerie" onclick="deleteImage('${forDelete}')"> <img src="./public/imgs/delete.png" class='iconDeleteGalerie' alt="">    </button>
+    <div style="    display: flex;
+    flex-direction: column;
+    align-items: center;">
+      <img src="./public/imgs/galerie/default.webp" alt="" class="galerieImage">
+    </div>
+  </div>
+`;
+        galeriePage.innerHTML += html;
     });
 }
 /*#endregion OPTIONSGALERIE*/
+
+/* #endregion DELETE POST*/
+async function deletePost(id) {
+    let allPost = document.querySelectorAll("#feedPost");
+    allPost.forEach(post => {
+        let search = post.dataset.value
+        if (search === id) {
+            post.remove();
+        }
+    });
+}
+/*#endregion DELETE POST*/
+
+/* #endregion DELETE IMAGE*/
+async function deleteImage(id) {
+    let allImage = document.querySelectorAll("#galeriePost");
+    allImage.forEach(img => {
+        let search = img.dataset.value
+        if (search === id) {
+            img.remove();
+        }
+    });
+}
+/*#endregion DELETE IMAGE*/
