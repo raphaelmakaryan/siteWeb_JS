@@ -168,3 +168,71 @@ async function deleteImage(id) {
     });
 }
 /*#endregion DELETE IMAGE*/
+
+
+/*#endregion PUB*/
+
+let moving = true, allImagesPub = document.getElementsByClassName("carrouselPub"), totalImagesPub = allImagesPub.length, slide = 0
+setInterval(function () {
+    moving = false
+    movePrev()
+}, 1000);
+
+
+function movePrev() {
+    if (!moving) {
+        if (slide === 0) {
+            slide = (totalImagesPub - 1);
+        } else {
+            slide--;
+        }
+        moveCarouselTo(slide);
+    }
+}
+
+
+function moveCarouselTo(slide) {
+    if (!moving) {
+        let dernierePub = slide - 1, nouvellePub = slide + 1, ancienneDernierPub = slide - 2, ancienneNouvellePub = slide + 2
+        if ((totalImagesPub - 1) > 3 ){
+            allImagesPub[dernierePub].classList.remove("carrouselPubSee")
+            allImagesPub[nouvellePub].classList.add("carrouselPubSee")
+        }
+    }
+}
+
+
+
+/*
+function moveCarouselTo(slide) {
+    if (!moving) {
+        var newPrevious = slide - 1,
+            newNext = slide + 1,
+            oldPrevious = slide - 2,
+            oldNext = slide + 2;
+        if ((totalImagesPub - 1) > 3) {
+            if (newPrevious <= 0) {
+                oldPrevious = (totalImagesPub - 1);
+            } else if (newNext >= (totalImagesPub - 1)) {
+                oldNext = 0;
+            }
+            if (slide === 0) {
+                newPrevious = (totalImagesPub - 1);
+                oldPrevious = (totalImagesPub - 2);
+                oldNext = (slide + 1);
+            } else if (slide === (totalImagesPub - 1)) {
+                newPrevious = (slide - 1);
+                newNext = 0;
+                oldNext = 1;
+            }
+            items[oldPrevious].className = "carrouselPub";
+            items[oldNext].className = "carrouselPub";
+            items[newPrevious].className = "carrouselPub" + " prev";
+            items[slide].className = "carrouselPub" + " active";
+            items[newNext].className = "carrouselPub" + " next";
+        }
+    }
+}
+    */
+
+/*#endregion PUB*/
