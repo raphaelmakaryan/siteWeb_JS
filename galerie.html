@@ -1,53 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Site Web | Galerie</title>
-    <link rel="stylesheet" href="./public/style/style.css" />
-  </head>
-  <body>
-    <header>
-      <div id="dropdownHeader">
-        <button id="dropdownHeaderMain">Menu</button>
-        <div id="dropdownHeaderList">
-          <a href="/index.html" class="mt-1 mb-1">Index</a>
-          <a href="/galerie.html" class="mt-1 mb-1">Galerie</a>
-          <a href="" class="mt-1 mb-1">Jeux</a>
-        </div>
-      </div>
-    </header>
 
-    <section id="galerieMain" class="mt-5">
-      <div id="galerieOptions" class="mb-2">
-        <button
-          type="button"
-          value="mosaique"
-          id="optionsMosGalerie"
-          class="noneButtons ms-2 activeOptions"
-        >
-          <img
-            src="./public/imgs/mosaique.png"
-            alt=""
-            class="iconOptionsGalerie"
-          />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Web | Galerie</title>
+  <link rel="stylesheet" href="./public/style/style.css" />
+</head>
+
+<body>
+  <header>
+    <div id="dropdownHeader">
+      <button id="dropdownHeaderMain">Menu</button>
+      <div id="dropdownHeaderList">
+        <a href="/index.html" class="mt-1 mb-1">Index</a>
+        <a href="/galerie.html" class="mt-1 mb-1">Galerie</a>
+        <a href="" class="mt-1 mb-1">Jeux</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="galerieMain" class="mt-5">
+    <div id="galerieOptions" class="mb-3">
+      <div id="optionsForImageSee">
+        <button type="button" value="mosaique" id="optionsMosGalerie" class="noneButtons ms-2 activeOptions">
+          <img src="./public/imgs/galerie/mosaique/mosaiqueActiv.png" alt="" id="optionsMosImage" class="iconOptionsGalerie" />
         </button>
-        <button
-          type="button"
-          value="colonne"
-          id="optionsColGalerie"
-          class="noneButtons"
-        >
-          <img
-            src="./public/imgs/colonne.png"
-            alt=""
-            class="iconOptionsGalerie"
-          />
+        <button type="button" value="colonne" id="optionsColGalerie" class="noneButtons">
+          <img src="./public/imgs/galerie/colonne/colonneNoActiv.png" id="optionsColImage" alt="" class="iconOptionsGalerie" />
         </button>
       </div>
-      <div id="galeriePage" class="mosaique"></div>
-    </section>
+      <div>
+        <button type="button" value="addImage" id="optionsAddGalerie" class="noneButtons">
+          <img src="./public/imgs/galerie/ajouter.png" alt="" class="iconOptionsGalerie" />
+        </button>
+      </div>
+    </div>
+    <div id="galeriePage" class="mosaique mt-2"></div>
+  </section>
 
-    <script src="./public/js/index.js"></script>
-  </body>
+  <script src="./public/js/index.js"></script>
+</body>
+
 </html>

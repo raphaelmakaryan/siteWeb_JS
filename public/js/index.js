@@ -76,34 +76,37 @@ if (getURL() === '') {
 /*#endregion CREATEPOST*/
 
 /*#region CREATEIMAGEGALERIE*/
-if (getURL() === 'galerie.html') {
-    let galeriePage = document.getElementById("galeriePage")
-    async function createImageGalerie(nombre) {
-        for (let index = 0; index < nombre; index++) {
-            let html = `<div class="forGalerieImage mb-1">
-                <img src="./public/imgs/default.webp" alt="" class="galerieImage">
+async function createImageGalerie(nombre, galeriePage) {
+    for (let index = 0; index < nombre; index++) {
+        let html = `<div class="forGalerieImage mb-1">
+                <img src="./public/imgs/galerie/default.webp" alt="" class="galerieImage">
             </div>
 `;
-            galeriePage.innerHTML += html;
-        }
+        galeriePage.innerHTML += html;
     }
-    createImageGalerie(5)
+}
+if (getURL() === 'galerie.html') {
+    let galeriePage = document.getElementById("galeriePage")
+    createImageGalerie(5, galeriePage)
 }
 /*#endregion CREATEIMAGEGALERIE*/
 
 /*#region OPTIONSGALERIE*/
 if (getURL() === 'galerie.html') {
     let optionsGalerie = "mos" // mos | col
-
-    let buttonsMos = document.getElementById("optionsMosGalerie")
-    let buttonsCol = document.getElementById("optionsColGalerie")
     let galeriePage = document.getElementById("galeriePage")
+    let buttonsMos = document.getElementById("optionsMosGalerie")
+    let imgButtonMos = document.getElementById("optionsMosImage")
+    let buttonsCol = document.getElementById("optionsColGalerie")
+    let imgButtonCol = document.getElementById("optionsColImage")
+    let addImage = document.getElementById("optionsAddGalerie")
+
 
     buttonsMos.addEventListener("click", function () {
         if (optionsGalerie !== "mos") {
             optionsGalerie = "mos"
-            buttonsMos.classList.add("activeOptions")
-            buttonsCol.classList.remove("activeOptions")
+            imgButtonMos.src = "./public/imgs/galerie/mosaique/mosaiqueActiv.png"
+            imgButtonCol.src = "./public/imgs/galerie/colonne/colonneNoActiv.png"
             galeriePage.classList.remove("colonne")
             galeriePage.classList.add("mosaique")
         }
@@ -112,11 +115,16 @@ if (getURL() === 'galerie.html') {
     buttonsCol.addEventListener("click", function () {
         if (optionsGalerie !== "col") {
             optionsGalerie = "col"
-            buttonsCol.classList.add("activeOptions")
-            buttonsMos.classList.remove("activeOptions")
+            imgButtonMos.src = "./public/imgs/galerie/mosaique/mosaiqueNoActiv.png"
+            imgButtonCol.src = "./public/imgs/galerie/colonne/colonneActiv.png"
+
             galeriePage.classList.remove("mosaique")
             galeriePage.classList.add("colonne")
         }
+    });
+
+    addImage.addEventListener("click", async function () {
+        await createImageGalerie(1, galeriePage)
     });
 }
 /*#endregion OPTIONSGALERIE*/
