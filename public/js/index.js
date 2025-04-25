@@ -7,6 +7,16 @@ function getURL() {
 }
 /*#endregion GETURL*/
 
+function debugFunctions(debug1, debug2) {
+    console.log("------------1-------------")
+    console.log(debug1)
+    console.log("------------1-------------")
+    console.log("------------2-------------")
+    console.log(debug2)
+    console.log("------------2-------------")
+}
+
+
 /*#region API*/
 let feedPage = document.getElementById("feedPage")
 
@@ -172,67 +182,39 @@ async function deleteImage(id) {
 
 /*#endregion PUB*/
 
-let moving = true, allImagesPub = document.getElementsByClassName("carrouselPub"), totalImagesPub = allImagesPub.length, slide = 0
+let moving = true, allImagesPub = document.getElementsByClassName("carrouselPub"), totalImagesPub = allImagesPub.length, slide = 0;
+
 setInterval(function () {
     moving = false
-    movePrev()
-}, 1000);
-
-
-function movePrev() {
     if (!moving) {
-        if (slide === 0) {
-            slide = (totalImagesPub - 1);
+        moveNext();
+    }
+}, 2000);
+
+function moveNext() {
+    console.log(moving)
+    if (!moving) {
+        if (slide === (totalImagesPub - 1)) {
+            slide = 0;
         } else {
-            slide--;
+            slide++;
         }
         moveCarouselTo(slide);
     }
 }
 
-
 function moveCarouselTo(slide) {
     if (!moving) {
-        let dernierePub = slide - 1, nouvellePub = slide + 1, ancienneDernierPub = slide - 2, ancienneNouvellePub = slide + 2
-        if ((totalImagesPub - 1) > 3 ){
-            allImagesPub[dernierePub].classList.remove("carrouselPubSee")
-            allImagesPub[nouvellePub].classList.add("carrouselPubSee")
+        let previousSlide = (slide === 0) ? (totalImagesPub - 1) : (slide - 1);
+        let nextSlide = (slide === (totalImagesPub - 1)) ? 0 : (slide + 1);
+
+        for (let i = 0; i < totalImagesPub; i++) {
+            allImagesPub[i].classList.remove("carrouselPubSee");
         }
+
+        allImagesPub[slide].classList.add("carrouselPubSee");
+        allImagesPub[previousSlide].classList.add("carrouselPubPrev");
+        allImagesPub[nextSlide].classList.add("carrouselPubNext");
     }
 }
-
-
-
-/*
-function moveCarouselTo(slide) {
-    if (!moving) {
-        var newPrevious = slide - 1,
-            newNext = slide + 1,
-            oldPrevious = slide - 2,
-            oldNext = slide + 2;
-        if ((totalImagesPub - 1) > 3) {
-            if (newPrevious <= 0) {
-                oldPrevious = (totalImagesPub - 1);
-            } else if (newNext >= (totalImagesPub - 1)) {
-                oldNext = 0;
-            }
-            if (slide === 0) {
-                newPrevious = (totalImagesPub - 1);
-                oldPrevious = (totalImagesPub - 2);
-                oldNext = (slide + 1);
-            } else if (slide === (totalImagesPub - 1)) {
-                newPrevious = (slide - 1);
-                newNext = 0;
-                oldNext = 1;
-            }
-            items[oldPrevious].className = "carrouselPub";
-            items[oldNext].className = "carrouselPub";
-            items[newPrevious].className = "carrouselPub" + " prev";
-            items[slide].className = "carrouselPub" + " active";
-            items[newNext].className = "carrouselPub" + " next";
-        }
-    }
-}
-    */
-
 /*#endregion PUB*/
