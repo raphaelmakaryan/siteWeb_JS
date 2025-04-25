@@ -70,7 +70,7 @@ function createPostManuel() {
           <p class="mt-1 ms-1 mb-1">ID : ${id} </p>
         </div>
         <div style='display:flex;'>
-             <button type="button" class="noneButtons" id='buttonDeleteFeed' onclick="deletePost('${forDelete}')"><img src="./public/imgs/main/delete.png" class='iconDeleteFeed' alt=""></button>
+             <button type="button" class="noneButtons" id='buttonDeleteFeed' onclick="deletePost('${forDelete}')"><img src="./public/imgs/delete.png" class='iconDeleteFeed' alt=""></button>
           </div>
       </div>
       `
@@ -81,7 +81,7 @@ function createPostManuel() {
 /*#region CREATEIMAGEGALERIE*/
 async function createImageGalerie(nombre, galeriePage) {
     for (let index = 0; index < nombre; index++) {
-        let html = `<div class="forGalerieImage mb-1">
+        let html = `<div class="forGalerieImage mb-1" id="galeriePost">
                 <img src="./public/imgs/galerie/default.webp" alt="" class="galerieImage">
             </div>
 `;
@@ -97,6 +97,7 @@ if (getURL() === 'galerie.html') {
 /*#region OPTIONSGALERIE*/
 if (getURL() === 'galerie.html') {
     let optionsGalerie = "mos" // mos | col
+    let comptForDelete = 0;
     let galeriePage = document.getElementById("galeriePage")
     let buttonsMos = document.getElementById("optionsMosGalerie")
     let imgButtonMos = document.getElementById("optionsMosImage")
@@ -127,7 +128,19 @@ if (getURL() === 'galerie.html') {
     });
 
     addImage.addEventListener("click", async function () {
-        await createImageGalerie(1, galeriePage)
+        comptForDelete++;
+        let forDelete = `Man${comptForDelete}`
+        let html = `  
+  <div class="forGalerieImage mb-1" id="galeriePost"  data-value="${forDelete}">
+   <button type="button" class="noneButtons buttonsDeleteGalerie" onclick="deleteImage('${forDelete}')"> <img src="./public/imgs/delete.png" class='iconDeleteGalerie' alt="">    </button>
+    <div style="    display: flex;
+    flex-direction: column;
+    align-items: center;">
+      <img src="./public/imgs/galerie/default.webp" alt="" class="galerieImage">
+    </div>
+  </div>
+`;
+        galeriePage.innerHTML += html;
     });
 }
 /*#endregion OPTIONSGALERIE*/
@@ -137,12 +150,21 @@ async function deletePost(id) {
     let allPost = document.querySelectorAll("#feedPost");
     allPost.forEach(post => {
         let search = post.dataset.value
-        console.log(search, " ", id)
         if (search === id) {
-            console.log("je delete")
             post.remove();
-            console.log("j'ai delete ?")
         }
     });
 }
 /*#endregion DELETE POST*/
+
+/* #endregion DELETE IMAGE*/
+async function deleteImage(id) {
+    let allImage = document.querySelectorAll("#galeriePost");
+    allImage.forEach(img => {
+        let search = img.dataset.value
+        if (search === id) {
+            img.remove();
+        }
+    });
+}
+/*#endregion DELETE IMAGE*/
