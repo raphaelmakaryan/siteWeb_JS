@@ -254,7 +254,7 @@ if (getURL() === "jeux.html") {
             } else if (mode === "medium") {
                 fetchAPIDifficulty("https://mocki.io/v1/7415599a-7cfd-464b-814a-387b0c90afc7");
             } else if (mode === "hard") {
-                fetchAPIDifficulty("hard");
+                fetchAPIDifficulty("https://mocki.io/v1/df323567-fc13-4287-aed3-370e1ad2e632");
             }
         }
     }

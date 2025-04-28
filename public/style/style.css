@@ -239,9 +239,10 @@ header {
     /*width: 90%;*/
 }
 
+/*
 #galeriePubCarouselWrap * {
-    /*box-sizing: border-box;*/
-}
+    box-sizing: border-box;
+*/
 
 #galeriePubCarousel {
     transform-style: preserve-3d;
@@ -323,7 +324,7 @@ header {
     margin: 1rem;
 }
 
-#gameResult{
+#gameResult {
     display: flex;
     flex-direction: column;
     align-items: center;
