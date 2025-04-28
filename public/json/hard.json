@@ -3,8 +3,9 @@
         "nameGame": "Memory Game",
         "difficulty": "Hard",
         "id": 2,
+        "life": 15,
         "numberPairsFind" : 25,
-        "url":"https://mocki.io/v1/df323567-fc13-4287-aed3-370e1ad2e632"
+        "url":"https://mocki.io/v1/fd97f4f5-f5d9-4e2c-a631-268efb962737"
     },
     "game": {
         "cardHidden": "./public/imgs/memoryGame/cardHidden.png",
