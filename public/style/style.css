@@ -239,11 +239,6 @@ header {
     /*width: 90%;*/
 }
 
-/*
-#galeriePubCarouselWrap * {
-    box-sizing: border-box;
-*/
-
 #galeriePubCarousel {
     transform-style: preserve-3d;
 
@@ -271,16 +266,6 @@ header {
     position: relative;
     z-index: 900;
 }
-
-/*
-#galeriePubCarouselWrap {
-    overflow: hidden;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-*/
 
 /*#endregion GALERIE*/
 
