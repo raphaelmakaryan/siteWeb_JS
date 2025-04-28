@@ -98,8 +98,7 @@ header {
     background-color: green;
 }
 
-#dropdownHeaderList {
-    display: flex;
+.dropdown {
     flex-direction: column;
     align-items: center;
     display: none;
@@ -285,6 +284,59 @@ header {
 /*#endregion GALERIE*/
 
 
+/*#region GAME*/
+#chooseDifficulty {
+    background-color: pink;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: black;
+}
+
+
+#dropdownGameList>a {
+    color: black !important;
+}
+
+#gameInformations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gameBoard {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.cardsGameEasy {
+    width: 10%;
+    margin: 1rem;
+}
+
+#newValue {
+    color: red;
+}
+
+.cardsGame {
+    width: 10%;
+    margin: 1rem;
+}
+
+#gameResult{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: red;
+}
+
+/*#endregion GAME*/
+
+
 /*#region MEDIAQUERYS*/
 
 /*! Tel*/
@@ -296,7 +348,7 @@ header {
 
 /*! PC*/
 @media only screen and (min-width: 992px) {
-    .carrouselPub{
+    .carrouselPub {
         width: 50%;
     }
 }

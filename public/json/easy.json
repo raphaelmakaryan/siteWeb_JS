@@ -1,0 +1,39 @@
+{
+    "informations": {
+        "nameGame": "Memory Game",
+        "difficulty": "Easy",
+        "id": 0,
+        "numberPairsFind" : 5,
+        "url":"https://mocki.io/v1/36f49edb-8665-483b-96a2-dd0ff9f12f93"
+    },
+    "game": {
+        "cardHidden": "./public/imgs/memoryGame/cardHidden.png",
+        "cards": [
+            {
+                "id": 1,
+                "image": "./public/imgs/memoryGame/image1.webp",
+                "name": "Carte image 1"
+            },
+            {
+                "id": 2,
+                "image": "./public/imgs/memoryGame/image2.webp",
+                "name": "Carte image 2"
+            },
+            {
+                "id": 3,
+                "image": "./public/imgs/memoryGame/image3.webp",
+                "name": "Carte image 3"
+            },
+            {
+                "id": 4,
+                "image": "./public/imgs/memoryGame/image4.webp",
+                "name": "Carte image 4"
+            },
+            {
+                "id": 5,
+                "image": "./public/imgs/memoryGame/image5.webp",
+                "name": "Carte image 5"
+            }
+        ]    
+    }
+}

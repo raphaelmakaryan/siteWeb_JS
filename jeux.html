@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Web | Jeu de mémoire</title>
+    <link rel="stylesheet" href="./public/style/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div id="dropdownHeader">
+        <button id="dropdownHeaderMain">Menu</button>
+        <div id="dropdownHeaderList" class="dropdown">
+          <a href="/index.html" class="mt-1 mb-1">Index</a>
+          <a href="/galerie.html" class="mt-1 mb-1">Galerie</a>
+          <a href="/jeux.html" class="mt-1 mb-1">Jeux</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="chooseDifficulty" class="mt-5">
+      <div>
+        <button id="dropdownGameMain">Choix de la difficulté</button>
+        <div id="dropdownGameList" class="dropdown">
+          <button onclick="chooseDifficultyGame('easy')" class="mt-1 mb-1">
+            Facile
+          </button>
+          <button onclick="chooseDifficultyGame('medium')" class="mt-1 mb-1">
+            Moyen
+          </button>
+          <button onclick="chooseDifficultyGame('hard')" class="mt-1 mb-1">
+            Difficile
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="game" class="mt-5">
+      <div id="gameMain">
+        <div id="gameInformations"></div>
+        <div id="gameBoard" class="mt-1"></div>
+        <div id="gameResult" class="mt-1"></div>
+      </div>
+    </section>
+
+    <script src="./public/js/index.js"></script>
+  </body>
+</html>
