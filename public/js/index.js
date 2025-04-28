@@ -252,7 +252,7 @@ if (getURL() === "jeux.html") {
                     "https://mocki.io/v1/36f49edb-8665-483b-96a2-dd0ff9f12f93"
                 );
             } else if (mode === "medium") {
-                fetchAPIDifficulty("medium");
+                fetchAPIDifficulty("https://mocki.io/v1/7415599a-7cfd-464b-814a-387b0c90afc7");
             } else if (mode === "hard") {
                 fetchAPIDifficulty("hard");
             }
@@ -274,6 +274,7 @@ if (getURL() === "jeux.html") {
 
     function gameSetup(data) {
         let gameInformations = document.getElementById("gameInformations");
+
         if (data.informations) {
             informations = {
                 nameGame: data.informations.nameGame,
@@ -290,9 +291,12 @@ if (getURL() === "jeux.html") {
             `;
         }
         if (data.game) {
+
             let cards = [];
             let compt = 0;
-            while (cards.length < data.informations.numberPairsFind) {
+
+
+            for (let index = 0; index < (data.informations.numberPairsFind * data.game.cards.length); index++) {
                 let randomIndex = Math.floor(Math.random() * data.game.cards.length);
                 let randomCard = data.game.cards[randomIndex];
                 if (!cards.some(card => card.id === randomCard.id)) {
@@ -305,9 +309,10 @@ if (getURL() === "jeux.html") {
 
             cards.forEach(card => {
                 compt++;
-                gameBoard.innerHTML += `<img src="${data.game.cardHidden}" id="cards" alt="" class="cardsGame${informations.difficulty}" onclick="clickCard(${compt}, ${card.id})">`;
+                gameBoard.innerHTML += `<img src="${data.game.cardHidden}" id="cards" alt="" class="cardsGame" onclick="clickCard(${compt}, ${card.id})">`;
             });
         }
+
     }
 
     function clickCard(card, valeur) {
@@ -353,6 +358,4 @@ if (getURL() === "jeux.html") {
         }
     }
 }
-
-
 /*#endregion JEUX*/
