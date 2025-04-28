@@ -280,24 +280,27 @@ if (getURL() === "jeux.html") {
 
     function saveProfil(raison) {
         if (raison === "nombrePartie") {
-            let newValue = parseInt(nombrePartieTotal + 1)
-            localStorage.removeItem("nombrePartieTotal")
+            let newValue = parseInt(nombrePartieTotal) + 1;
             localStorage.setItem("nombrePartieTotal", newValue);
-        }
-        else if (raison === "easy") {
-            localStorage.setItem("nombrePartieEasy", nombrePartieEasy + 1);
+        } else if (raison === "easy") {
+            let newValue = parseInt(nombrePartieEasy) + 1;
+            localStorage.setItem("nombrePartieEasy", newValue);
         }
         else if (raison === "medium") {
-            localStorage.setItem("nombrePartieMedium", nombrePartieMedium + 1);
+            let newValue = parseInt(nombrePartieMedium) + 1;
+            localStorage.setItem("nombrePartieMedium", newValue);
         }
         else if (raison === "hard") {
-            localStorage.setItem("nombrePartieHard", nombrePartieHard + 1);
+            let newValue = parseInt(nombrePartieHard) + 1;
+            localStorage.setItem("nombrePartieHard", newValue);
         }
         else if (raison === "win") {
-            localStorage.setItem("nombrePartieWin", nombrePartieWin + 1);
+            let newValue = parseInt(nombrePartieWin) + 1;
+            localStorage.setItem("nombrePartieWin", newValue);
         }
         else if (raison === "loose") {
-            localStorage.setItem("nombrePartieLoose", nombrePartieLoose + 1);
+            let newValue = parseInt(nombrePartieLoose) + 1;
+            localStorage.setItem("nombrePartieLoose", newValue);
         }
     }
 
