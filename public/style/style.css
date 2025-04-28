@@ -98,8 +98,7 @@ header {
     background-color: green;
 }
 
-#dropdownHeaderList {
-    display: flex;
+.dropdown {
     flex-direction: column;
     align-items: center;
     display: none;
@@ -240,9 +239,10 @@ header {
     /*width: 90%;*/
 }
 
+/*
 #galeriePubCarouselWrap * {
-    /*box-sizing: border-box;*/
-}
+    box-sizing: border-box;
+*/
 
 #galeriePubCarousel {
     transform-style: preserve-3d;
@@ -285,6 +285,65 @@ header {
 /*#endregion GALERIE*/
 
 
+/*#region GAME*/
+#chooseDifficulty {
+    background-color: pink;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: black;
+}
+
+
+#dropdownGameList>a {
+    color: black !important;
+}
+
+#gameInformations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gameBoard {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+
+#newValue {
+    color: red;
+}
+
+.cardsGameEasy {
+    width: 10%;
+    margin: 1rem;
+}
+
+.cardsGameMedium {
+    width: 10%;
+    margin: 1rem;
+}
+
+.cardsGameHard {
+    width: 7%;
+    margin: 1rem;
+}
+
+#gameResult {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: red;
+}
+
+/*#endregion GAME*/
+
+
 /*#region MEDIAQUERYS*/
 
 /*! Tel*/
@@ -296,8 +355,20 @@ header {
 
 /*! PC*/
 @media only screen and (min-width: 992px) {
-    .carrouselPub{
+    .carrouselPub {
         width: 50%;
+    }
+
+    .cardsGameEasy {
+        width: 8%;
+    }
+
+    .cardsGameMedium {
+        width: 8%;
+    }
+
+    .cardsGameHard {
+        width: 4%;
     }
 }
 
