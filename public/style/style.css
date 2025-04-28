@@ -295,6 +295,10 @@ header {
 }
 
 /*! PC*/
-@media only screen and (min-width: 992px) {}
+@media only screen and (min-width: 992px) {
+    .carrouselPub{
+        width: 50%;
+    }
+}
 
 /*#endregion MEDIAQUERYS*/
