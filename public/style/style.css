@@ -344,6 +344,17 @@ header {
     color: red;
 }
 
+#profilMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoProfil {
+    display: flex;
+    flex-direction: row;
+}
+
 /*#endregion GAME*/
 
 

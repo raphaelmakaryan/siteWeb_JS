@@ -232,6 +232,13 @@ if (getURL() === "jeux.html") {
     let informations = {}
     let carteActuel = {};
     let endTheGame = false;
+    let nombrePartieTotal = localStorage.getItem("nombrePartieTotal");
+    let nombrePartieEasy = localStorage.getItem("nombrePartieEasy");
+    let nombrePartieMedium = localStorage.getItem("nombrePartieMedium");
+    let nombrePartieHard = localStorage.getItem("nombrePartieHard");
+    let nombrePartieWin = localStorage.getItem("nombrePartieWin");
+    let nombrePartieLoose = localStorage.getItem("nombrePartieLoose");
+    userHaveProfil()
 
     buttonDropDownGame.addEventListener("click", function () {
         if (isActiveGame) {
@@ -242,6 +249,67 @@ if (getURL() === "jeux.html") {
             buttonDropDownGameList.style.display = "flex";
         }
     });
+
+
+    function userHaveProfil() {
+        if (nombrePartieTotal && nombrePartieEasy && nombrePartieMedium && nombrePartieHard && nombrePartieWin && nombrePartieLoose) {
+            textProfil()
+            return true;
+        } else {
+            createProfil()
+            location.reload();
+        }
+    }
+
+    function textProfil() {
+        let profilMain = document.getElementById("profilMain");
+        profilMain.innerHTML = `
+        <div>
+        <p style="font-size: 1.2rem">Profil</p>
+        </div>
+        <p>Total number of parts : ${nombrePartieTotal}</p>
+        <p>Number of easy parts : ${nombrePartieEasy}</p>
+        <p>Number of medium parts : ${nombrePartieMedium}</p>
+        <p>Number of hard parts : ${nombrePartieHard}</p>
+        <p>Number of victories : ${nombrePartieWin}</p>
+        <p>Number of defeats : ${nombrePartieLoose}</p>
+        </div>
+        `;
+    }
+
+
+    function saveProfil(raison) {
+        if (raison === "nombrePartie") {
+            let newValue = parseInt(nombrePartieTotal + 1)
+            localStorage.removeItem("nombrePartieTotal")
+            localStorage.setItem("nombrePartieTotal", newValue);
+        }
+        else if (raison === "easy") {
+            localStorage.setItem("nombrePartieEasy", nombrePartieEasy + 1);
+        }
+        else if (raison === "medium") {
+            localStorage.setItem("nombrePartieMedium", nombrePartieMedium + 1);
+        }
+        else if (raison === "hard") {
+            localStorage.setItem("nombrePartieHard", nombrePartieHard + 1);
+        }
+        else if (raison === "win") {
+            localStorage.setItem("nombrePartieWin", nombrePartieWin + 1);
+        }
+        else if (raison === "loose") {
+            localStorage.setItem("nombrePartieLoose", nombrePartieLoose + 1);
+        }
+    }
+
+    function createProfil() {
+        localStorage.setItem("nombrePartieTotal", 0);
+        localStorage.setItem("nombrePartieEasy", 0);
+        localStorage.setItem("nombrePartieMedium", 0);
+        localStorage.setItem("nombrePartieHard", 0);
+        localStorage.setItem("nombrePartieWin", 0);
+        localStorage.setItem("nombrePartieLoose", 0);
+    }
+
 
     function chooseDifficultyGame(mode) {
         if (mode) {
@@ -371,6 +439,9 @@ if (getURL() === "jeux.html") {
 
     function winGame() {
         if (informations.numberPairsFind === 0) {
+            saveProfil("win")
+            saveProfil("nombrePartie")
+            saveProfil(informations.difficulty.toLowerCase())
             let endGameText = document.getElementById("endTheGame");
             endGameText.innerHTML = `<span id="win">Congratulations! You have found all the pairs!</span>`
             endTheGame = true;
@@ -379,6 +450,9 @@ if (getURL() === "jeux.html") {
 
     function endGame() {
         if (informations.life === 0) {
+            saveProfil("loose")
+            saveProfil("nombrePartie")
+            saveProfil(informations.difficulty.toLowerCase())
             let divNumberLife = document.getElementById("numberLife");
             divNumberLife.innerHTML = `Number life : ${informations.life} `;
             let endGameText = document.getElementById("endTheGame");
