@@ -309,7 +309,7 @@ if (getURL() === "jeux.html") {
 
             cards.forEach(card => {
                 compt++;
-                gameBoard.innerHTML += `<img src="${data.game.cardHidden}" id="cards" alt="" class="cardsGame" onclick="clickCard(${compt}, ${card.id})">`;
+                gameBoard.innerHTML += `<img src="${data.game.cardHidden}" id="cards" alt="" class="cardsGame${informations.difficulty}" onclick="clickCard(${compt}, ${card.id})">`;
             });
         }
 

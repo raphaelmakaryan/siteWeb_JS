@@ -319,8 +319,18 @@ header {
     color: red;
 }
 
-.cardsGame {
+.cardsGameEasy {
     width: 10%;
+    margin: 1rem;
+}
+
+.cardsGameMedium {
+    width: 10%;
+    margin: 1rem;
+}
+
+.cardsGameHard {
+    width: 7%;
     margin: 1rem;
 }
 
@@ -347,6 +357,18 @@ header {
 @media only screen and (min-width: 992px) {
     .carrouselPub {
         width: 50%;
+    }
+
+    .cardsGameEasy {
+        width: 8%;
+    }
+
+    .cardsGameMedium {
+        width: 8%;
+    }
+
+    .cardsGameHard {
+        width: 4%;
     }
 }
 
