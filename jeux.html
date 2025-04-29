@@ -9,8 +9,11 @@
 
   <body>
     <header>
+      <div>
+        <img src="./public/imgs/logo.png" alt="" id="logo" />
+      </div>
       <div id="dropdownHeader">
-        <button id="dropdownHeaderMain">Menu</button>
+        <button id="dropdownHeaderMain" class="forButtons">Menu</button>
         <div id="dropdownHeaderList" class="dropdown">
           <a href="./index.html" class="mt-1 mb-1">Index</a>
           <a href="./galerie.html" class="mt-1 mb-1">Galerie</a>
@@ -21,15 +24,15 @@
 
     <section id="chooseDifficulty" class="mt-5">
       <div>
-        <button id="dropdownGameMain">Choix de la difficulté</button>
+        <button id="dropdownGameMain" class="forButtons">Choix de la difficulté</button>
         <div id="dropdownGameList" class="dropdown">
-          <button onclick="chooseDifficultyGame('easy')" class="mt-1 mb-1">
+          <button onclick="chooseDifficultyGame('easy')" class="mt-1 mb-1 forButtons">
             Facile
           </button>
-          <button onclick="chooseDifficultyGame('medium')" class="mt-1 mb-1">
+          <button onclick="chooseDifficultyGame('medium')" class="mt-1 mb-1 forButtons">
             Moyen
           </button>
-          <button onclick="chooseDifficultyGame('hard')" class="mt-1 mb-1">
+          <button onclick="chooseDifficultyGame('hard')" class="mt-1 mb-1 forButtons">
             Difficile
           </button>
         </div>

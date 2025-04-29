@@ -85,7 +85,6 @@ setInterval(function () {
 }, 2000);
 
 function moveNext() {
-    console.log(moving);
     if (!moving) {
         if (slide === totalImagesPub - 1) {
             slide = 0;
