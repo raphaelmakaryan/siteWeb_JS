@@ -1,5 +1,12 @@
 /*#region BODY*/
+:root {
+    --blue: #4a3aff;
+    --white: #ffffff;
+    --radius: 0.5rem;
+}
+
 body {
+    background-color: var(--white);
     margin: 0;
     padding: 0;
 }
@@ -9,14 +16,24 @@ p {
     padding: 0;
 }
 
+
 a {
-    color: white;
+    color: var(--white);
 }
+
 
 .noneButtons {
     background-color: unset !important;
     border-color: unset !important;
     border-width: 0 !important;
+}
+
+.forButtons {
+    border-radius: var(--radius);
+    background-color: var(--blue);
+    color: var(--white);
+    border: solid 2px var(--blue);
+    font-size: 0.9rem;
 }
 
 /*#endregion BODY*/
@@ -88,25 +105,49 @@ a {
 /*#region HEADER*/
 header {
     padding: 1rem;
-    background-color: red;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 #dropdownHeader {
-    background-color: green;
+    color: black !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .dropdown {
+    background-color: var(--blue);
     flex-direction: column;
     align-items: center;
     display: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+
+#logo {
+    width: 40%;
 }
 
 /*#endregion HEADER*/
 
 /*#region FEED*/
+
+#forAdd {
+    padding-top: 8%;
+    padding-right: 22%;
+    padding-left: 22%;
+    padding-bottom: 8%;
+}
+
+#buttonRecharg {
+    padding-left: 2%;
+    padding-bottom: 1%;
+    padding-right: 2%;
+    padding-top: 1%;
+}
+
 #feedMain {
     width: 100%;
     height: 100%;
@@ -122,10 +163,11 @@ header {
 }
 
 .forFeedPost {
-    border: solid 2px black;
+    border: solid 2px var(--blue);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-radius: var(--radius);
 }
 
 
@@ -143,12 +185,26 @@ header {
 
 .optionsCreatePost {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#forSubmit {
+    width: 60%;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/*
+.optionsCreatePost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    */
+
 #feedCreatePost {
-    border: solid 2px orange;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,6 +218,17 @@ header {
 
 .iconDeleteFeed {
     width: 8%;
+}
+
+#titleCreatePost {
+    color: var(--blue);
+    text-transform: uppercase;
+}
+
+#formPost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*#endregion FEED*/
@@ -241,8 +308,6 @@ header {
 
 #galeriePubCarousel {
     transform-style: preserve-3d;
-
-
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -272,7 +337,6 @@ header {
 
 /*#region GAME*/
 #chooseDifficulty {
-    background-color: pink;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -368,6 +432,18 @@ header {
 
     .cardsGameHard {
         width: 4%;
+    }
+
+    .forFeedPost {
+        margin-left: 35%;
+        margin-right: 35%;
+    }
+
+    .iconDeleteGalerie {
+        width: 8%;
+        position: relative;
+        top: 29rem;
+        left: 17rem;
     }
 }
 
