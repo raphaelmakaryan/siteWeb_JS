@@ -1,13 +1,13 @@
-/*#region GETURL*/
+//#region GETURL
 function getURL() {
     const url = window.location.href;
     const segments = url.split("/");
     const fileName = segments.pop();
     return fileName;
 }
-/*#endregion GETURL*/
+//#endregion GETURL
 
-/*#region DEBUG*/
+//#region DEBUG
 function debugFunctions(debug1, debug2) {
     console.log("------------1-------------");
     console.log(debug1);
@@ -16,9 +16,9 @@ function debugFunctions(debug1, debug2) {
     console.log(debug2);
     console.log("------------2-------------");
 }
-/*#endregion DEBUG*/
+//#endregion DEBUG
 
-/*#region API*/
+//#region API
 let feedPage = document.getElementById("feedPage");
 
 async function createPostAPI(nombre) {
@@ -26,14 +26,14 @@ async function createPostAPI(nombre) {
         const response = await fetch("https://v2.jokeapi.dev/joke/Any?lang=fr");
         const post = await response.json();
         let html = `
-    <div class="forFeedPost mb-1" id="feedPost">
-    <div>
-    <p class="question mt-1 ms-1">Question : ${post.setup}</p>
-    <p class="mt-1 ms-1">Réponse : ${post.delivery}</p>
-    <p class="mt-1 ms-1 mb-1">ID : ${post.id}</p>
-    </div>
-    </div>
-`;
+                <div class="forFeedPost mb-1" id="feedPost">
+                    <div>
+                    <p class="question mt-1 ms-1">Question : ${post.setup}</p>
+                    <p class="mt-1 ms-1">Réponse : ${post.delivery}</p>
+                    <p class="mt-1 ms-1 mb-1">ID : ${post.id}</p>
+                    </div>
+                </div>
+            `;
         feedPage.innerHTML += html;
     }
 }
@@ -49,9 +49,9 @@ async function rechargPost(nombre) {
 if (getURL() === "index.html") {
     createPostAPI(5);
 }
-/*#endregion API*/
+//#endregion API
 
-/*#region MENU HEADER*/
+//#region MENU HEADER
 let buttonDropDown = document.getElementById("dropdownHeaderMain");
 let buttonDropDownList = document.getElementById("dropdownHeaderList");
 let isActive = false;
@@ -65,37 +65,39 @@ buttonDropDown.addEventListener("click", function () {
         buttonDropDownList.style.display = "flex";
     }
 });
-/*#endregion MENU HEADER*/
+//#endregion MENU HEADER
 
-/*#region CREATEPOST*/
+//#region CREATEPOST
 function createPostManuel() {
     let question = document.getElementById("questionCreate").value;
     let reponse = document.getElementById("reponseCreate").value;
     let id = document.getElementById("idCreate").value;
     let forDelete = `Man${id}`;
 
-    let html = ` <div class="forFeedPost mb-1" id="feedPost" data-value="${forDelete}">
+    let html = ` 
+    <div class="forFeedPost mb-1" id="feedPost" data-value="${forDelete}">
         <div style="width:100%;">
-          <p class="question mt-1 ms-1">Question : ${question}</p>
-          <p class="mt-1 ms-1">Réponse :  ${reponse} </p>
-          <p class="mt-1 ms-1 mb-1">ID : ${id} </p>
+            <p class="question mt-1 ms-1">Question : ${question}</p>
+            <p class="mt-1 ms-1">Réponse :  ${reponse} </p>
+            <p class="mt-1 ms-1 mb-1">ID : ${id} </p>
         </div>
         <div style='display:flex;'>
-             <button type="button" class="noneButtons" id='buttonDeleteFeed' onclick="deletePost('${forDelete}')"><img src="./public/imgs/delete.png" class='iconDeleteFeed' alt=""></button>
-          </div>
-      </div>
-      `;
+            <button type="button" class="noneButtons" id='buttonDeleteFeed' onclick="deletePost('${forDelete}')"><img src="./public/imgs/delete.png" class='iconDeleteFeed' alt=""></button>
+        </div>
+    </div>
+    `;
     feedPage.innerHTML += html;
 }
-/*#endregion CREATEPOST*/
+//#endregion CREATEPOST
 
-/*#region CREATEIMAGEGALERIE*/
+//#region CREATEIMAGEGALERIE
 async function createImageGalerie(nombre, galeriePage) {
     for (let index = 0; index < nombre; index++) {
-        let html = `<div class="forGalerieImage mb-1" id="galeriePost">
+        let html = `
+            <div class="forGalerieImage mb-1" id="galeriePost">
                 <img src="./public/imgs/galerie/default.webp" alt="" class="galerieImage">
             </div>
-`;
+            `;
         galeriePage.innerHTML += html;
     }
 }
@@ -103,9 +105,9 @@ if (getURL() === "galerie.html") {
     let galeriePage = document.getElementById("galeriePage");
     createImageGalerie(5, galeriePage);
 }
-/*#endregion CREATEIMAGEGALERIE*/
+//#endregion CREATEIMAGEGALERIE
 
-/*#region OPTIONSGALERIE*/
+//#region OPTIONSGALERIE
 if (getURL() === "galerie.html") {
     let optionsGalerie = "mos"; // mos | col
     let comptForDelete = 0;
@@ -141,21 +143,19 @@ if (getURL() === "galerie.html") {
         comptForDelete++;
         let forDelete = `Man${comptForDelete}`;
         let html = `  
-  <div class="forGalerieImage mb-1" id="galeriePost"  data-value="${forDelete}">
-   <button type="button" class="noneButtons buttonsDeleteGalerie" onclick="deleteImage('${forDelete}')"> <img src="./public/imgs/delete.png" class='iconDeleteGalerie' alt="">    </button>
-    <div style="    display: flex;
-    flex-direction: column;
-    align-items: center;">
-      <img src="./public/imgs/galerie/default.webp" alt="" class="galerieImage">
-    </div>
-  </div>
-`;
+                <div class="forGalerieImage mb-1" id="galeriePost"  data-value="${forDelete}">
+                <button type="button" class="noneButtons buttonsDeleteGalerie" onclick="deleteImage('${forDelete}')"> <img src="./public/imgs/delete.png" class='iconDeleteGalerie' alt="">    </button>
+                    <div style="    display: flex;flex-direction: column; align-items: center;">
+                        <img src="./public/imgs/galerie/default.webp" alt="" class="galerieImage">
+                    </div>
+                </div>
+                `;
         galeriePage.innerHTML += html;
     });
 }
-/*#endregion OPTIONSGALERIE*/
+//#endregion OPTIONSGALERIE
 
-/* #endregion DELETE POST*/
+//#region DELETE POST
 async function deletePost(id) {
     let allPost = document.querySelectorAll("#feedPost");
     allPost.forEach((post) => {
@@ -165,9 +165,9 @@ async function deletePost(id) {
         }
     });
 }
-/*#endregion DELETE POST*/
+//#endregion DELETE POST
 
-/* #endregion DELETE IMAGE*/
+//#region DELETE IMAGE
 async function deleteImage(id) {
     let allImage = document.querySelectorAll("#galeriePost");
     allImage.forEach((img) => {
@@ -177,9 +177,9 @@ async function deleteImage(id) {
         }
     });
 }
-/*#endregion DELETE IMAGE*/
+//#endregion DELETE IMAGE
 
-/*#endregion PUB*/
+//#region PUB
 if (getURL() === "galerie.html") {
     let moving = true,
         allImagesPub = document.getElementsByClassName("carrouselPub"),
@@ -220,9 +220,9 @@ if (getURL() === "galerie.html") {
         }
     }
 }
-/*#endregion PUB*/
+//#endregion PUB
 
-/*#region JEUX*/
+//#region JEUX
 if (getURL() === "jeux.html") {
     let buttonDropDownGame = document.getElementById("dropdownGameMain");
     let buttonDropDownGameList = document.getElementById("dropdownGameList");
@@ -464,4 +464,4 @@ if (getURL() === "jeux.html") {
         }
     }
 }
-/*#endregion JEUX*/
+//#endregion JEUX
