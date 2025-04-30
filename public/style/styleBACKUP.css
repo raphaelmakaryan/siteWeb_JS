@@ -21,9 +21,6 @@ a {
     color: var(--white);
 }
 
-h1 {
-    color: var(--blue);
-}
 
 .noneButtons {
     background-color: unset !important;
@@ -254,33 +251,13 @@ header {
     height: auto;
 }
 
-#feedPage {
+#feedPage{
     display: flex;
     flex-direction: row;
-    justify-content: center;
 }
 
-.apiFeed {
+.apiFeed{
     width: 25%;
-}
-
-.titleApiFeed {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.imgNASA {
-    width: 100%;
-    height: auto;
-}
-
-.forNasaPost {
-    border: solid 2px var(--blue);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-radius: var(--radius);
 }
 
 /*#endregion FEED*/
@@ -485,8 +462,8 @@ header {
     }
 
     .forFeedPost {
-        margin-left: 25%;
-        margin-right: 25%;
+        margin-left: 35%;
+        margin-right: 35%;
     }
 
     .iconDeleteGalerie {
