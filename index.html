@@ -25,7 +25,6 @@
     </div>
   </header>
 
-
   <section id="modalPost">
     <div id="modalPostContent">
       <div id="modalPostHeader">
@@ -54,13 +53,23 @@
 
   <section id="feedMain" class="mt-4">
     <div id="feedPage">
-      <div id="feedOptions" class="mb-2">
-        <button type="button" value="Ajouter" id="buttonAdding" class="forButtons buttonsOptions" onclick="addingPostModal()">
-          Ajouter
-        </button>
-        <button type="button" value="Recharger" id="buttonRecharg" class="forButtons buttonsOptions" onclick="rechargPost(5)">
-          Recharger
-        </button>
+      <div id="apiNASA" class="apiFeed">
+        <div class="titleApiFeed">
+          <h1>NASA</h1>
+        </div>
+      </div>
+      <div id="apiJoke" class="apiFeed">
+        <div class="titleApiFeed">
+          <h1>JOKE</h1>
+        </div>
+        <div id="feedOptions" class="mb-2">
+          <button type="button" value="Ajouter" id="buttonAdding" class="forButtons buttonsOptions" onclick="addingPostModal()">
+            Ajouter
+          </button>
+          <button type="button" value="Recharger" id="buttonRecharg" class="forButtons buttonsOptions" onclick="rechargPost(5)">
+            Recharger
+          </button>
+        </div>
       </div>
     </div>
     </div>
