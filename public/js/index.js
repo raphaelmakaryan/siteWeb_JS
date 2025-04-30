@@ -1,3 +1,4 @@
+
 //#region MODAL
 let activateModal = false;
 let modal = document.getElementById("modalPost");
@@ -98,14 +99,14 @@ async function deletePost(id) {
 
 //#region NASA
 let dataNASA = localStorage.getItem("nasa");
-let objectData = JSON.parse(dataNASA);
+let objectDataNasa = JSON.parse(dataNASA);
 let nasaPage = document.getElementById("apiNASA");
-let useAPI = false
-verifDateNASA(useAPI);
+let useAPINAsa = false
+verifDateNASA(useAPINAsa);
 
 function verifDateNASA(valeur) {
     let date = new Date();
-    let dateNasa = new Date(objectData.date);
+    let dateNasa = new Date(objectDataNasa.date);
     if (date.getDate() !== dateNasa.getDate()) {
         nasaAPI(valeur)
     } else {
@@ -113,18 +114,13 @@ function verifDateNASA(valeur) {
     }
 }
 
-
 function nasaAPI(api) {
     if (api) {
-        fetch("")
-            .then(res => res.json())
-            .then(resWT => {
-                fetch(`https://api.nasa.gov/planetary/apod?api_key=${resWT.whatThis}`)
-                    .then(resN => resN.json())
-                    .then(responseN => {
-                        localStorage.setItem("nasa", JSON.stringify(responseN));
-                        postNASA()
-                    })
+        fetch(`https://api.nasa.gov/planetary/apod?api_key=${tokenNasa}`)
+            .then(resN => resN.json())
+            .then(responseN => {
+                localStorage.setItem("nasa", JSON.stringify(responseN));
+                postNASA()
             })
     } else if (!api) {
         let noApi = {
@@ -142,21 +138,60 @@ function nasaAPI(api) {
     }
 }
 
-
 function postNASA() {
     let data = localStorage.getItem("nasa");
-    let objectData = JSON.parse(data);
+    let objectDataNasa = JSON.parse(data);
 
     let html = `
         <div class="forNasaPost mb-1" id="feedPost">
             <div>
-                <p class="question mt-1 ms-1">Titre : ${objectData.title}</p>
-                <p class="mt-1 ms-1">Description : ${objectData.explanation}</p>
-                <p class="mt-1 ms-1 mb-1">Date : ${objectData.date}</p>
-                <img src="${objectData.url}" alt="" class="imgNASA">
+                <p class="question mt-1 ms-1">Titre : ${objectDataNasa.title}</p>
+                <p class="mt-1 ms-1">Description : ${objectDataNasa.explanation}</p>
+                <p class="mt-1 ms-1 mb-1">Date : ${objectDataNasa.date}</p>
+                <img src="${objectDataNasa.url}" alt="" class="imgNASA">
             </div>
         </div>
     `;
     nasaPage.innerHTML += html;
 }
 //#endregion NASA
+
+//#region NEW
+let dataNews = localStorage.getItem("news");
+let objectDataNews = JSON.parse(dataNews);
+let newsPage = document.getElementById("apiNEWS");
+let useAPINews = true
+newsAPI(useAPINews);
+
+function newsAPI(api) {
+    if (api) {
+        fetch(`https://newsapi.org/v2/everything?q=bitcoin&pageSize=5&apiKey=${tokenNews}`)
+            .then(resN => resN.json())
+            .then(responseN => {
+                localStorage.setItem("news", JSON.stringify(responseN));
+                postNews()
+            })
+    }
+}
+
+function postNews() {
+    let data = localStorage.getItem("news");
+    let objectData = JSON.parse(data);
+
+    objectData.articles.forEach(article => {
+        let html = `
+            <div class="forNewsPost forNasaPost mb-1" id="feedPost">
+                <div>
+                    <p class="question mt-1 ms-1">Titre : ${article.title}</p>
+                    <p class="mt-1 ms-1">Description : ${article.description || "Aucune description disponible."}</p>
+                    <p class="mt-1 ms-1">Source : ${article.source.name || "Source inconnue"}</p>
+                    <p class="mt-1 ms-1 mb-1">Publié le : ${new Date(article.publishedAt).toLocaleDateString()}</p>
+                    <a href="${article.url}" target="_blank" class="mt-1 ms-1">Lire l'article complet</a>
+                    ${article.urlToImage ? `<img src="${article.urlToImage}" alt="Image de l'article" class="imgNews mt-1 imgNASA">` : ""}
+                </div>
+            </div>
+        `;
+        newsPage.innerHTML += html;
+    });
+}
+//#endregion NEW
