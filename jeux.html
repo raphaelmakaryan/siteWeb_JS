@@ -1,57 +1,66 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./public/imgs/logo.png" type="image/x-icon">
-    <title>Site Web | Jeu de mémoire</title>
-    <link rel="stylesheet" href="./public/style/style.css" />
-  </head>
 
-  <body>
-    <header>
-      <div>
-        <img src="./public/imgs/logo.png" alt="" id="logo" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./public/imgs/logo.png" type="image/x-icon">
+  <title>Site Web | Jeu de mémoire</title>
+  <link rel="stylesheet" href="./public/style/style.css" />
+</head>
+
+<body>
+  <header id="header">
+    <div>
+      <a href="./index.html" class="mt-1 mb-1">
+        <img src="./public/imgs/logo.png" alt="" id="logo">
+      </a>
+    </div>
+    <div id="dropdownHeader">
+      <button id="dropdownHeaderMain" class="forButtons dimensionButton">Menu</button>
+      <div id="dropdownHeaderList" class="dropdown">
+        <a href="./index.html" class="mt-1 mb-1">Index</a>
+        <a href="./galerie.html" class="mt-1 mb-1">Galerie</a>
+        <a href="./jeux.html" class="mt-1 mb-1">Game</a>
       </div>
-      <div id="dropdownHeader">
-        <button id="dropdownHeaderMain" class="forButtons">Menu</button>
-        <div id="dropdownHeaderList" class="dropdown">
-          <a href="./index.html" class="mt-1 mb-1">Index</a>
-          <a href="./galerie.html" class="mt-1 mb-1">Galerie</a>
-          <a href="./jeux.html" class="mt-1 mb-1">Jeux</a>
-        </div>
+    </div>
+  </header>
+
+  <section id="titleGame" class="mt-5 mb-5">
+    <h1>Memory games</h1>
+    <h2>Memory game with cards to turn over.</h2>
+  </section>
+
+  <section id="chooseDifficulty" class="mt-5">
+    <div>
+      <button id="dropdownGameMain" class="forButtons dimensionButton">Choice of difficulty</button>
+      <div id="dropdownGameList" class="dropdown">
+        <button onclick="chooseDifficultyGame('easy')" class="mt-1 mb-1 forButtons">
+          Easy
+        </button>
+        <button onclick="chooseDifficultyGame('medium')" class="mt-1 mb-1 forButtons">
+          Medium
+        </button>
+        <button onclick="chooseDifficultyGame('hard')" class="mt-1 mb-1 forButtons">
+          Hard
+        </button>
       </div>
-    </header>
+    </div>
+  </section>
 
-    <section id="chooseDifficulty" class="mt-5">
-      <div>
-        <button id="dropdownGameMain" class="forButtons">Choix de la difficulté</button>
-        <div id="dropdownGameList" class="dropdown">
-          <button onclick="chooseDifficultyGame('easy')" class="mt-1 mb-1 forButtons">
-            Facile
-          </button>
-          <button onclick="chooseDifficultyGame('medium')" class="mt-1 mb-1 forButtons">
-            Moyen
-          </button>
-          <button onclick="chooseDifficultyGame('hard')" class="mt-1 mb-1 forButtons">
-            Difficile
-          </button>
-        </div>
-      </div>
-    </section>
+  <section id="game" class="mt-5">
+    <div id="gameMain">
+      <div id="gameInformations"></div>
+      <div id="gameBoard" class="mt-1"></div>
+    </div>
+  </section>
 
-    <section id="game" class="mt-5">
-      <div id="gameMain">
-        <div id="gameInformations"></div>
-        <div id="gameBoard" class="mt-1"></div>
-      </div>
-    </section>
+  <section id="profil" class="mt-4">
+    <div id="profilMain">
+  </section>
 
-    <section id="profil" class="mt-4">
-      <div id="profilMain">
-    </section>
-
- <script src="./public/js/main.js"></script>
+  <script src="./public/js/main.js"></script>
   <script src="./public/js/jeux.js"></script>
-  </body>
+</body>
+
 </html>
