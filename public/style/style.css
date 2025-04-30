@@ -139,9 +139,11 @@ header {
     padding-right: 22%;
     padding-left: 22%;
     padding-bottom: 8%;
+    color: var(--blue) !important;
+    background-color: var(--white) !important;
 }
 
-#buttonRecharg {
+.buttonsOptions {
     padding-left: 2%;
     padding-bottom: 1%;
     padding-right: 2%;
@@ -159,7 +161,7 @@ header {
 #feedOptions {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .forFeedPost {
@@ -196,15 +198,8 @@ header {
     align-items: center;
 }
 
-/*
-.optionsCreatePost {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-    */
-
 #feedCreatePost {
+    color: var(--white);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -229,6 +224,31 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#modalPost {
+    top: 2%;
+    position: absolute;
+    height: 96%;
+    background-color: var(--blue);
+    width: 100%;
+    display: none;
+    flex-direction: column;
+}
+
+#closeModalPost {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#modalPostHeader {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#modalPostHeader>button>img {
+    width: 15%;
+    height: auto;
 }
 
 /*#endregion FEED*/
@@ -334,7 +354,6 @@ header {
 
 /*#endregion GALERIE*/
 
-
 /*#region GAME*/
 #chooseDifficulty {
     display: flex;
@@ -406,7 +425,6 @@ header {
 
 /*#endregion GAME*/
 
-
 /*#region MEDIAQUERYS*/
 
 /*! Tel*/
@@ -444,6 +462,17 @@ header {
         position: relative;
         top: 29rem;
         left: 17rem;
+    }
+
+    #forAdd {
+        padding-top: 1%;
+        padding-right: 4%;
+        padding-left: 4%;
+        padding-bottom: 1%;
+    }
+
+    #feedCreatePost {
+        margin-top: 5rem;
     }
 }
 
