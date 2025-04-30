@@ -18,9 +18,11 @@ userHaveProfil()
 buttonDropDownGame.addEventListener("click", function () {
     if (isActiveGame) {
         isActiveGame = false;
+        buttonDropDownGame.style.borderRadius = "var(--radius) var(--radius)  var(--radius) var(--radius)";
         buttonDropDownGameList.style.display = "none";
     } else if (!isActiveGame) {
         isActiveGame = true;
+        buttonDropDownGame.style.borderRadius = "var(--radius) var(--radius)  0 0";
         buttonDropDownGameList.style.display = "flex";
     }
 });

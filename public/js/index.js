@@ -37,7 +37,7 @@ async function createPostAPI(nombre) {
                 <div class="forFeedPost mb-1" id="feedPost">
                     <div>
                     <p class="question mt-1 ms-1">Question : ${post.setup}</p>
-                    <p class="mt-1 ms-1">Réponse : ${post.delivery}</p>
+                    <p class="mt-1 ms-1">Answer : ${post.delivery}</p>
                     <p class="mt-1 ms-1 mb-1">ID : ${post.id}</p>
                     </div>
                 </div>
@@ -145,7 +145,7 @@ function postNASA() {
     let html = `
         <div class="forNasaPost mb-1" id="feedPost">
             <div>
-                <p class="question mt-1 ms-1">Titre : ${objectDataNasa.title}</p>
+                <p class="question mt-1 ms-1">Title : ${objectDataNasa.title}</p>
                 <p class="mt-1 ms-1">Description : ${objectDataNasa.explanation}</p>
                 <p class="mt-1 ms-1 mb-1">Date : ${objectDataNasa.date}</p>
                 <img src="${objectDataNasa.url}" alt="" class="imgNASA">
@@ -182,11 +182,11 @@ function postNews() {
         let html = `
             <div class="forNewsPost forNasaPost mb-1" id="feedPost">
                 <div>
-                    <p class="question mt-1 ms-1">Titre : ${article.title}</p>
-                    <p class="mt-1 ms-1">Description : ${article.description || "Aucune description disponible."}</p>
-                    <p class="mt-1 ms-1">Source : ${article.source.name || "Source inconnue"}</p>
-                    <p class="mt-1 ms-1 mb-1">Publié le : ${new Date(article.publishedAt).toLocaleDateString()}</p>
-                    <a href="${article.url}" target="_blank" class="mt-1 ms-1">Lire l'article complet</a>
+                    <p class="question mt-1 ms-1">Title : ${article.title}</p>
+                    <p class="mt-1 ms-1">Description : ${article.description || "No description available."}</p>
+                    <p class="mt-1 ms-1">Source : ${article.source.name || "Source incUnknown sourceonnue"}</p>
+                    <p class="mt-1 ms-1 mb-1">Published on : ${new Date(article.publishedAt).toLocaleDateString()}</p>
+                    <a href="${article.url}" target="_blank" class="mt-1 ms-1">Read the full article</a>
                     ${article.urlToImage ? `<img src="${article.urlToImage}" alt="Image de l'article" class="imgNews mt-1 imgNASA">` : ""}
                 </div>
             </div>

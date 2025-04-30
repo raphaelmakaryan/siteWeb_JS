@@ -13,14 +13,16 @@
 
   <header id="header">
     <div>
-      <img src="./public/imgs/logo.png" alt="" id="logo">
+      <a href="./index.html" class="mt-1 mb-1">
+        <img src="./public/imgs/logo.png" alt="" id="logo">
+      </a>
     </div>
     <div id="dropdownHeader">
-      <button id="dropdownHeaderMain" class="forButtons">Menu</button>
+      <button id="dropdownHeaderMain" class="forButtons dimensionButton">Menu</button>
       <div id="dropdownHeaderList" class="dropdown">
         <a href="./index.html" class="mt-1 mb-1">Index</a>
         <a href="./galerie.html" class="mt-1 mb-1">Galerie</a>
-        <a href="./jeux.html" class="mt-1 mb-1">Jeux</a>
+        <a href="./jeux.html" class="mt-1 mb-1">Game</a>
       </div>
     </div>
   </header>
@@ -32,13 +34,13 @@
       </div>
       <div id="modalPostBody">
         <div id="feedCreatePost" class="mb-2">
-          <h2 id="titleCreatePost">Crée un post</h2>
+          <h2 id="titleCreatePost">Create a post</h2>
             <div class="mb-1">
               <label for="questionCreatePost" class="optionsCreatePost">Question :</label>
               <input type="text" id="questionCreate" name="questionCreatePost" required />
             </div>
             <div class=" mb-1">
-              <label for="questionCreatePost" class="optionsCreatePost">Réponse :</label>
+              <label for="questionCreatePost" class="optionsCreatePost">Answer :</label>
               <input type="text" id="reponseCreate" name="reponseCreatePost" required />
             </div>
             <div class=" mb-1">
@@ -46,7 +48,7 @@
               <input type="number" id="idCreate" name="idCreatePost" required />
             </div>
             <div class="mb-1" id="forSubmit">
-              <button type="submit" id="forAdd" class="forButtons" onclick="createPostManuel()">Ajouter !</button>
+              <button type="submit" id="forAdd" class="forButtons" onclick="createPostManuel()">Add !</button>
             </div>
         </div>
   </section>
@@ -64,10 +66,10 @@
         </div>
         <div id="feedOptions" class="mb-2">
           <button type="button" value="Ajouter" id="buttonAdding" class="forButtons buttonsOptions" onclick="addingPostModal()">
-            Ajouter
+            Add
           </button>
           <button type="button" value="Recharger" id="buttonRecharg" class="forButtons buttonsOptions" onclick="rechargPost(5)">
-            Recharger
+            Recharge
           </button>
         </div>
       </div>
@@ -79,6 +81,9 @@
     </div>
     </div>
   </section>
+
+
+
   <script src="./public/js/token.js"></script>
   <script src="./public/js/main.js"></script>
   <script src="./public/js/index.js"></script>

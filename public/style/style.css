@@ -127,10 +127,18 @@ header {
     align-items: center;
     display: none;
     border-radius: 0 0 var(--radius) var(--radius);
+    width: 100%;
 }
 
 #logo {
     width: 40%;
+}
+
+.dimensionButton {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /*#endregion HEADER*/
@@ -453,6 +461,12 @@ header {
 .infoProfil {
     display: flex;
     flex-direction: row;
+}
+
+#titleGame{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*#endregion GAME*/
