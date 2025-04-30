@@ -1,23 +1,23 @@
-- feat → Changes about addition or removal of a feature. Ex: `feat: add table on landing page`, `feat: remove table from landing page`
+- feat → Modifications concernant l'ajout ou la suppression d'une fonctionnalité. Ex: `feat: add table on landing page`, `feat: remove table from landing page`
 
 - fix → Correction du bug, suivi du bug. Correction du bug, suivi du bug. Ex: `fix: illustration overflows in mobile view`
 
-- docs → Update documentation (README.md)
+- docs → Mettre à jour la documentation (README.md)
 
 - style → Mettre à jour le style et ne modifier aucune logique dans le code (réorganiser les importations, corriger les espaces, supprimer les commentaires)
 
-- chore → Installing new dependencies, or bumping deps
+- chore → Installation de nouvelles dépendances ou mise à niveau des dépendances
 
 - refactor → Pas beaucoup de changement de code, c'est donc une refactorisation
 
-- ci → Update github workflows, husky
+- ci → Mettre à jour les workflows GitHub, Husky
 
-- test → Update testing suite, cypress files
+- test → Mettre à jour la suite de tests, fichiers Cypress
 
-- revert → when reverting commits
+- revert → lors de l'annulation des commits
 
-- perf → Fixing something regarding performance (deriving state, using memo, callback)
+- perf → Correction de quelque chose concernant les performances (dérivation de l'état, utilisation d'un mémo, rappel)
 
-- vercel → Blank commit to trigger vercel deployment. Ex: `vercel: trigger deployment`
+- vercel → Validation vide pour déclencher le déploiement de Vercel. Ex : « vercel: trigger deployment »
 
 https://www.conventionalcommits.org/en/v1.0.0/
