@@ -1,3 +1,30 @@
+//#region MODAL
+let activateModal = false;
+let modal = document.getElementById("modalPost");
+let header = document.getElementById("header");
+let feed = document.getElementById("feedMain");
+
+function addingPostModal() {
+    if (activateModal === false) {
+        modal.style.display = "block";
+        header.style.display = "none";
+        feed.style.display = "none";
+        activateModal = true;
+    } else {
+        modal.style.display = "none";
+        header.style.display = "flex";
+        feed.style.display = "flex";
+        activateModal = false;
+    }
+}
+
+function closeModalPost() {
+    modal.style.display = "none";
+    header.style.display = "flex";
+    feed.style.display = "flex";
+}
+//#endregion MODAL
+
 //#region API
 let feedPage = document.getElementById("feedPage");
 
@@ -31,12 +58,16 @@ createPostAPI(5);
 
 //#region CREATEPOST
 function createPostManuel() {
-    let question = document.getElementById("questionCreate").value;
-    let reponse = document.getElementById("reponseCreate").value;
-    let id = document.getElementById("idCreate").value;
-    let forDelete = `Man${id}`;
+    if (activateModal) {
+        let question = document.getElementById("questionCreate").value;
+        let reponse = document.getElementById("reponseCreate").value;
+        let id = document.getElementById("idCreate").value;
+        modal.style.display = "none";
+        header.style.display = "flex";
+        feed.style.display = "flex";
+        let forDelete = `Man${id}`;
 
-    let html = ` 
+        let html = ` 
     <div class="forFeedPost mb-1" id="feedPost" data-value="${forDelete}">
         <div style="width:100%;">
             <p class="question mt-1 ms-1">Question : ${question}</p>
@@ -48,7 +79,8 @@ function createPostManuel() {
         </div>
     </div>
     `;
-    feedPage.innerHTML += html;
+        feedPage.innerHTML += html;
+    }
 }
 //#endregion CREATEPOST
 

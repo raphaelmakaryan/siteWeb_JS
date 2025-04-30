@@ -11,45 +11,54 @@
 
 <body>
 
-    <header>
-      <div>
-        <img src="./public/imgs/logo.png" alt="" id="logo">
+  <header id="header">
+    <div>
+      <img src="./public/imgs/logo.png" alt="" id="logo">
+    </div>
+    <div id="dropdownHeader">
+      <button id="dropdownHeaderMain" class="forButtons">Menu</button>
+      <div id="dropdownHeaderList" class="dropdown">
+        <a href="./index.html" class="mt-1 mb-1">Index</a>
+        <a href="./galerie.html" class="mt-1 mb-1">Galerie</a>
+        <a href="./jeux.html" class="mt-1 mb-1">Jeux</a>
       </div>
-      <div id="dropdownHeader">
-        <button id="dropdownHeaderMain" class="forButtons">Menu</button>
-        <div id="dropdownHeaderList" class="dropdown">
-          <a href="./index.html" class="mt-1 mb-1">Index</a>
-          <a href="./galerie.html" class="mt-1 mb-1">Galerie</a>
-          <a href="./jeux.html" class="mt-1 mb-1">Jeux</a>
-        </div>
-      </div>
-    </header>
+    </div>
+  </header>
 
+
+  <section id="modalPost">
+    <div id="modalPostContent">
+      <div id="modalPostHeader">
+        <button id="closeModalPost" class="forButtons" onclick="closeModalPost()"><img src="./public/imgs/close.png" alt=""></button>
+      </div>
+      <div id="modalPostBody">
+        <div id="feedCreatePost" class="mb-2">
+          <h2 id="titleCreatePost">Crée un post</h2>
+            <div class="mb-1">
+              <label for="questionCreatePost" class="optionsCreatePost">Question :</label>
+              <input type="text" id="questionCreate" name="questionCreatePost" required />
+            </div>
+            <div class=" mb-1">
+              <label for="questionCreatePost" class="optionsCreatePost">Réponse :</label>
+              <input type="text" id="reponseCreate" name="reponseCreatePost" required />
+            </div>
+            <div class=" mb-1">
+              <label for="idCreate" class="optionsCreatePost">ID :</label>
+              <input type="number" id="idCreate" name="idCreatePost" required />
+            </div>
+            <div class="mb-1" id="forSubmit">
+              <button type="submit" id="forAdd" class="forButtons" onclick="createPostManuel()">Ajouter !</button>
+            </div>
+        </div>
+  </section>
 
   <section id="feedMain" class="mt-4">
     <div id="feedPage">
-      <div id="feedCreatePost" class="mb-2">
-        <h2 id="titleCreatePost">Crée un post</h2>
-        <form onsubmit="createPostManuel()" id="formPost">
-          <div class="mb-1">
-            <label for="questionCreatePost" class="optionsCreatePost">Question :</label>
-            <input type="text" id="questionCreate" name="questionCreatePost" required />
-          </div>
-          <div class=" mb-1">
-            <label for="questionCreatePost" class="optionsCreatePost">Réponse :</label>
-            <input type="text" id="reponseCreate" name="reponseCreatePost" required />
-          </div>
-          <div class=" mb-1">
-            <label for="questionCreatePost" class="optionsCreatePost">ID :</label>
-            <input type="number" id="idCreate" name="idCreatePost" required />
-          </div>
-          <div class="mb-1" id="forSubmit">
-            <button type="submit" id="forAdd" class="forButtons">Ajouter !</button>
-          </div>
-        </form>
-      </div>
       <div id="feedOptions" class="mb-2">
-        <button type="button" value="Recharger" id="buttonRecharg" class="forButtons" onclick="rechargPost(5)">
+        <button type="button" value="Ajouter" id="buttonAdding" class="forButtons buttonsOptions" onclick="addingPostModal()">
+          Ajouter
+        </button>
+        <button type="button" value="Recharger" id="buttonRecharg" class="forButtons buttonsOptions" onclick="rechargPost(5)">
           Recharger
         </button>
       </div>
