@@ -623,6 +623,10 @@ tbody>tr:nth-of-type(even) {
     .apiFeed {
         width: 100%;
     }
+
+    #galeriePubMain {
+        margin-top: 0px !important;
+    }
 }
 
 /*! PC*/
