@@ -652,6 +652,24 @@ tbody>tr:nth-of-type(even) {
     #galeriePubMain {
         margin-top: 0px !important;
     }
+
+    .buttonsPaginations {
+        width: 15%;
+    }
+
+    #rightArrow {
+        right: 125px;
+        z-index: 1000;
+    }
+
+    #leftArrow {
+        left: 125px;
+        z-index: 1000;
+    }
+
+    .buttonsPaginations>img {
+        width: 50px;
+    }
 }
 
 /*! PC*/
