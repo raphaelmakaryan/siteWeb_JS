@@ -207,3 +207,12 @@ setInterval(() => {
     fetchSensorData()
 }, 5000);
 //#endregion API
+
+//#region CREATE ERROR
+function logKey(e) {
+    if (e.key === "e") {
+        sendErrorMessage("Voici une erreur")
+    }
+}
+document.addEventListener("keypress", logKey);
+//#endregion CREATE ERROR
