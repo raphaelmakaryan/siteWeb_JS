@@ -381,6 +381,7 @@ header {
     flex-direction: row;
     align-content: center;
     justify-content: center;
+    align-items: center;
 }
 
 .carrouselPub {
@@ -399,6 +400,30 @@ header {
     position: relative;
     z-index: 900;
 }
+
+.buttonsPaginations {
+    position: relative;
+    display: flex;
+    width: 5%;
+    height: 5%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonsPaginations>img {
+    width: 55%;
+}
+
+#leftArrow {
+    left: 250px;
+}
+
+#rightArrow {
+    right: 250px;
+}
+
+
 
 /*#endregion GALERIE*/
 
