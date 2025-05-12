@@ -1,5 +1,5 @@
 //#region VARIABLES
-let debug = false;
+const tableDashboard = document.getElementsByClassName("tableDashboard");
 //#endregion VARIABLES
 
 //#region MENU
@@ -44,12 +44,11 @@ function statutCaptors(temperature, humidity) {
 }
 
 function updateTable(data) {
-    const tableDashboard = document.getElementsByClassName("tableDashboard");
     const bodyCaptorsDashboard = document.getElementById("bodyCaptorsDashboard");
     if (data && alreadyExists(tableDashboard[0].children) === false) {
         data.forEach(element => {
             bodyCaptorsDashboard.innerHTML += `
-                <tr class="status-${statutCaptors(element.temperature, element.humidity)}">
+                <tr class="oneCaptor status-${statutCaptors(element.temperature, element.humidity)}">
                     <td>${element.name}</td>
                     <td>${element.temperature}</td>
                     <td>${element.humidity}</td>
@@ -60,6 +59,42 @@ function updateTable(data) {
     }
 }
 //#endregion TABLE
+
+//#region FILTERS MENU
+function allCaptors() {
+    let allCaptors = tableDashboard[0].children
+    for (let index = 0; index < allCaptors.length; index++) {
+        const element = allCaptors[index];
+        element.style.display = ""
+    }
+}
+
+function captorsOk() {
+    let captors = document.querySelectorAll(".oneCaptor")
+    for (let i = 0; i < captors.length; i++) {
+        let captor = captors[i];
+        let verifStatut = captor.classList[1] === "status-✅";
+        if (verifStatut) {
+            captor.style.display = "";
+        } else {
+            captor.style.display = "none";
+        }
+    }
+}
+
+function captorsError() {
+    let captors = document.querySelectorAll(".oneCaptor")
+    for (let i = 0; i < captors.length; i++) {
+        let captor = captors[i];
+        let verifStatut = captor.classList[1] === "status-⚠";
+        if (verifStatut) {
+            captor.style.display = "";
+        } else {
+            captor.style.display = "none";
+        }
+    }
+}
+//#endregion FILTERS MENU
 
 //#region API
 const API_URL = "https://mocki.io/v1/d2c438e4-f9f3-4f8b-bdee-b59b0325bd4e"

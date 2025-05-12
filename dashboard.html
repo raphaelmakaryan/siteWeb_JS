@@ -34,13 +34,13 @@
     <section id="dropdownDashboardMain" class="mt-1 mb-2">
         <button id="dropdownDashboard" class="forButtons dimensionButton">Menu</button>
         <div id="dropdownDashboardList" class="dropdown">
-            <button onclick="" class="mt-1 mb-1 forButtons">
+            <button onclick="allCaptors()" class="mt-1 mb-1 forButtons">
                 Tous les capteurs
             </button>
-            <button onclick="" class="mt-1 mb-1 forButtons">
+            <button onclick="captorsOk()" class="mt-1 mb-1 forButtons">
                 Capteurs OK
             </button>
-            <button onclick="" class="mt-1 mb-1 forButtons">
+            <button onclick="captorsError()" class="mt-1 mb-1 forButtons">
                 Capteurs en alerte
             </button>
         </div>
@@ -48,7 +48,7 @@
 
     <section id="mainDashboard">
         <section id="tableMainDashboard" class="mt-1 mb-2">
-            <table >
+            <table>
                 <thead>
                     <tr>
                         <th>Nom</th>
