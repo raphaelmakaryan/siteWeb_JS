@@ -3,6 +3,7 @@
     --blue: #4a3aff;
     --white: #ffffff;
     --radius: 0.5rem;
+    --error: #fceaea;
 }
 
 body {
@@ -498,22 +499,44 @@ header {
 
 table {
     border-collapse: collapse;
+    border: 2px solid rgb(140 140 140);
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-td,
-th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-weight: bold;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
+thead,
+tfoot {
+    background-color: rgb(228 240 245);
+}
+
+th,
+td {
+    border: 1px solid rgb(160 160 160);
+    padding: 8px 10px;
+}
+
+td:last-of-type {
+    text-align: center;
+}
+
+tbody>tr:nth-of-type(even) {
+    background-color: rgb(237 238 242);
+}
+
+tfoot th {
+    text-align: right;
+}
+
+tfoot td {
+    font-weight: bold;
 }
 
 #forErrorAPI {
@@ -551,7 +574,7 @@ tr:nth-child(even) {
 
 #errorAPI>p {
     border-top: 2px black solid;
-    background-color: #fceaea;
+    background-color: var(--error);
 }
 
 #forCanvaDashboard {
@@ -565,6 +588,10 @@ tr:nth-child(even) {
 #mainDashboard {
     display: flex;
     flex-direction: column
+}
+
+.status-⚠ {
+    background-color: var(--error) !important;
 }
 
 /*#endregion DASHBOARD*/

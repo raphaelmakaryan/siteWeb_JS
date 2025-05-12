@@ -48,19 +48,17 @@
 
     <section id="mainDashboard">
         <section id="tableMainDashboard" class="mt-1 mb-2">
-            <table>
-                <tr>
-                    <th>Nom</th>
-                    <th>Température (°C)</th>
-                    <th>Humidité (%)</th>
-                    <th>Statut</th>
-                </tr>
-                <tr>
-                    <td>Alfreds Futterkiste</td>
-                    <td>Maria Anders</td>
-                    <td>Germany</td>
-                    <td>Germany</td>
-                </tr>
+            <table >
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Température (°C)</th>
+                        <th>Humidité (%)</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody class="tableDashboard" id="bodyCaptorsDashboard">
+                </tbody>
             </table>
         </section>
 
@@ -71,7 +69,6 @@
                 </div>
                 <div id="forErrorAPI">
                     <div id="errorAPI">
-                        <p>Erreur !</p>
                     </div>
                 </div>
             </div>
