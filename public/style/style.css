@@ -3,6 +3,11 @@
     --blue: #4a3aff;
     --white: #ffffff;
     --radius: 0.5rem;
+    --error: #fceaea;
+}
+
+[data-theme="dark"] {
+    --white: #4a4a4a;
 }
 
 body {
@@ -103,6 +108,10 @@ h1 {
     margin-left: 5rem !important;
 }
 
+.w-100 {
+    width: 100% !important;
+}
+
 /*#endregion MYRAPHSTRAP*/
 
 /*#region HEADER*/
@@ -127,7 +136,6 @@ header {
     align-items: center;
     display: none;
     border-radius: 0 0 var(--radius) var(--radius);
-    width: 100%;
 }
 
 #logo {
@@ -136,7 +144,7 @@ header {
 
 .dimensionButton {
     padding-left: 15px;
-    padding-right: 15px;
+    padding-right: 14px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -402,9 +410,12 @@ header {
     color: black;
 }
 
+.dropdown>a {
+    color: var(--white) !important;
+}
 
-#dropdownGameList>a {
-    color: black !important;
+.dropdown>p {
+    color: var(--white) !important;
 }
 
 #gameInformations {
@@ -463,13 +474,136 @@ header {
     flex-direction: row;
 }
 
-#titleGame{
+#titleGame {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 /*#endregion GAME*/
+
+/*#region DASHBOARD*/
+
+#titleDashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dropdownDashboardMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dropdownDashboard {
+    padding-right: 47px !important;
+    padding-left: 48px !important;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(140 140 140);
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-weight: bold;
+}
+
+tr {
+    background-color: white
+}
+
+thead>tr {
+    background-color: rgb(228 240 245) !important;
+}
+
+th,
+td {
+    border: 1px solid rgb(160 160 160);
+    padding: 8px 10px;
+}
+
+td:last-of-type {
+    text-align: center;
+}
+
+/*
+tbody>tr:nth-of-type(even) {
+    background-color: rgb(237 238 242);
+*/
+
+#forErrorAPI {
+    overflow-y: auto;
+}
+
+#errorAPIDashboard {
+    border-style: groove;
+    background-color: #c6c6c6;
+    width: auto;
+    height: 200px;
+    border: black solid 2px;
+}
+
+#titleErrorAPI {
+    border-top: 0 black solid;
+    border-left: 0 black solid;
+    border-right: 0 black solid;
+    border-bottom: 2px black solid;
+    border-style: outset;
+}
+
+#espaceErrorAPI {
+    padding: 80px;
+}
+
+#errorAPI {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 178px;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
+}
+
+#errorAPI>p {
+    border-top: 2px black solid;
+    background-color: var(--error);
+}
+
+#canvaDashboard {
+    background-color: white;
+    display: flex;
+}
+
+#mainDashboard {
+    display: flex;
+    flex-direction: column
+}
+
+.status-⚠ {
+    background-color: var(--error) !important;
+}
+
+#theme-toggle {
+    color: white !important;
+}
+
+#dropdownDashboard {
+    color: white !important;
+}
+
+.listDropdown {
+    color: white !important;
+}
+
+/*#endregion DASHBOARD*/
 
 /*#region MEDIAQUERYS*/
 
@@ -530,6 +664,25 @@ header {
 
     #feedCreatePost {
         margin-top: 5rem;
+    }
+
+    #dropdownDashboard {
+        padding-right: 48px !important;
+    }
+
+    #errorAPIDashboard {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #forErrorAPIDashboard {
+        width: 100%;
+    }
+
+    #mainDashboard {
+        align-items: center;
     }
 }
 

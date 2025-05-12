@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Capteur Nord",
+        "temperature": 5,
+        "humidity": 40
+    },
+    {
+        "id": 2,
+        "name": "Capteur Sud",
+        "temperature": 50,
+        "humidity": 2
+    },
+    {
+        "id": 3,
+        "name": "Capteur Est",
+        "temperature": 40,
+        "humidity": 50
+    },
+    {
+        "id": 4,
+        "name": "Capteur Ouest",
+        "temperature": 10,
+        "humidity": 10
+    }
+]
