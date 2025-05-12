@@ -20,6 +20,57 @@ buttonDropDownCaptors.addEventListener("click", function () {
 });
 //#endregion MENU
 
+//#region CHARTS
+function getChart(data) {
+    const ctx = document.getElementById('canvaDashboard');
+    ctx.style.width = "500px";
+
+    const labels = data.map(element => element.name);
+    const temperatures = data.map(element => element.temperature);
+    const humidities = data.map(element => element.humidity);
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Temperature (°C)',
+                    data: temperatures,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Humidity (%)',
+                    data: humidities,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Sensor Data Overview'
+                }
+            }
+        }
+    });
+}
+//#endregion CHARTS
+
 //#region ERROR
 function sendErrorMessage(error) {
     const errorAPI = document.getElementById("errorAPI");
@@ -56,6 +107,7 @@ function updateTable(data) {
                 </tr>
             `;
         });
+        getChart(data)
     }
 }
 //#endregion TABLE

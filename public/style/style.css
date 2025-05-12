@@ -577,10 +577,6 @@ tfoot td {
     background-color: var(--error);
 }
 
-#forCanvaDashboard {
-    background-color: gray;
-}
-
 #canvaDashboard {
     display: flex;
 }
