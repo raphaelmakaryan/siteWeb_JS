@@ -1,6 +1,215 @@
 //#region VARIABLES
+/* 
+PREMIER :
+https://mocki.io/v1/d2c438e4-f9f3-4f8b-bdee-b59b0325bd4e
+
+DEUXIEME : 
+https://mocki.io/v1/289a8bc6-3310-42b9-bcd7-9c1fd4962f19
+
+*/
+const API_URL = "https://mocki.io/v1/289a8bc6-3310-42b9-bcd7-9c1fd4962f19"
+const API_TOKEN = "Bearer 12345-abcde"
 const tableDashboard = document.getElementsByClassName("tableDashboard");
+let evolutionVisibilty = false
 //#endregion VARIABLES
+
+//#region LOCALSTORAGE
+function north(data) {
+    let nameLS = "Capteur Nord"
+    const getHistoricNorth = localStorage.getItem(nameLS);
+    let historique = [];
+    if (!getHistoricNorth) {
+        data.forEach(element => {
+            if (element.name === nameLS) {
+                historique.push({
+                    temperature: [element.temperature],
+                    humidity: [element.humidity],
+                    id: element.id
+                });
+            }
+        });
+        localStorage.setItem(nameLS, JSON.stringify(historique));
+    } else {
+        let jsonLocal = JSON.parse(getHistoricNorth)[0]
+        let lastPosTem = jsonLocal.temperature[jsonLocal.temperature.length - 1]
+        let lastPosHum = jsonLocal.humidity[jsonLocal.humidity.length - 1]
+        let idNorth = jsonLocal.id
+        verificationNewValue(data, lastPosTem, lastPosHum, nameLS, idNorth - 1)
+    }
+}
+
+function east(data) {
+    let nameLS = "Capteur Est"
+    const getHistoricEast = localStorage.getItem(nameLS);
+    if (!getHistoricEast) {
+        let historique = [];
+        data.forEach(element => {
+            if (element.name === nameLS) {
+                historique.push({
+                    temperature: [element.temperature],
+                    humidity: [element.humidity],
+                    id: element.id
+                });
+            }
+        });
+        localStorage.setItem(nameLS, JSON.stringify(historique));
+    } else {
+        let jsonLocal = JSON.parse(getHistoricEast)[0]
+        let lastPosTem = jsonLocal.temperature[jsonLocal.temperature.length - 1]
+        let lastPosHum = jsonLocal.humidity[jsonLocal.humidity.length - 1]
+        let idEast = jsonLocal.id
+        verificationNewValue(data, lastPosTem, lastPosHum, nameLS, idEast - 1)
+    }
+}
+
+function south(data) {
+    let nameLS = "Capteur Sud"
+    const getHistoricSouth = localStorage.getItem(nameLS);
+    if (!getHistoricSouth) {
+        let historique = [];
+        data.forEach(element => {
+            if (element.name === nameLS) {
+                historique.push({
+                    temperature: [element.temperature],
+                    humidity: [element.humidity],
+                    id: element.id
+                });
+            }
+        });
+        localStorage.setItem(nameLS, JSON.stringify(historique));
+    } else {
+        let jsonLocal = JSON.parse(getHistoricSouth)[0]
+        let lastPosTem = jsonLocal.temperature[jsonLocal.temperature.length - 1]
+        let lastPosHum = jsonLocal.humidity[jsonLocal.humidity.length - 1]
+        let idSouth = jsonLocal.id
+        verificationNewValue(data, lastPosTem, lastPosHum, nameLS, idSouth - 1)
+    }
+}
+
+function west(data) {
+    let nameLS = "Capteur Ouest"
+    const getHistoricWest = localStorage.getItem(nameLS);
+    if (!getHistoricWest) {
+        let historique = [];
+        data.forEach(element => {
+            if (element.name === nameLS) {
+                historique.push({
+                    temperature: [element.temperature],
+                    humidity: [element.humidity],
+                    id: element.id
+                });
+            }
+        });
+        localStorage.setItem(nameLS, JSON.stringify(historique));
+    } else {
+        let jsonLocal = JSON.parse(getHistoricWest)[0]
+        let lastPosTem = jsonLocal.temperature[jsonLocal.temperature.length - 1]
+        let lastPosHum = jsonLocal.humidity[jsonLocal.humidity.length - 1]
+        let idWest = jsonLocal.id
+        verificationNewValue(data, lastPosTem, lastPosHum, nameLS, idWest - 1)
+    }
+}
+
+function verificationLocal(data) {
+    north(data)
+    west(data)
+    south(data)
+    east(data)
+}
+
+function addNewValue(data, capteur, what) {
+    let localCapteur = JSON.parse(localStorage.getItem(capteur)) || [];
+    let search = localCapteur[0][what]
+    search.push(data);
+    localStorage.setItem(capteur, JSON.stringify(localCapteur));
+}
+
+function verificationNewValue(data, temp, hum, capteur, id) {
+    if (data[id].name === capteur) {
+        let dataSearch = data[id]
+        if (temp != dataSearch.temperature) {
+            addNewValue(dataSearch.temperature, capteur, "temperature")
+        } else if (hum != dataSearch.humidity) {
+            addNewValue(dataSearch.humidity, capteur, "humidity")
+        }
+        else if (!evolutionVisibilty){
+            evolutionVisibilty = true
+            evolution()
+        }
+    }
+}
+
+function evolution() {
+    const getHistoricNorth = JSON.parse(localStorage.getItem("Capteur Nord"));
+    const getHistoricEast = JSON.parse(localStorage.getItem("Capteur Est"));
+    const getHistoricWest = JSON.parse(localStorage.getItem("Capteur Ouest"));
+    const getHistoricSouth = JSON.parse(localStorage.getItem("Capteur Sud"));
+
+    if (getHistoricNorth && getHistoricEast && getHistoricSouth && getHistoricWest) {
+        const ctx = document.getElementById('canvaDashboardEvolution');
+        ctx.style.width = "500px";
+
+        const labels = Array.from({ length: getHistoricNorth[0].temperature.length }, (_, i) => `Point ${i + 1}`);
+
+        const datasets = [
+            {
+                label: 'North Temperature (°C)',
+                data: getHistoricNorth[0].temperature,
+                borderColor: 'rgba(255, 99, 132, 1)',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                fill: false
+            },
+            {
+                label: 'East Temperature (°C)',
+                data: getHistoricEast[0].temperature,
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                fill: false
+            },
+            {
+                label: 'South Temperature (°C)',
+                data: getHistoricSouth[0].temperature,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                fill: false
+            },
+            {
+                label: 'West Temperature (°C)',
+                data: getHistoricWest[0].temperature,
+                borderColor: 'rgba(153, 102, 255, 1)',
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                fill: false
+            }
+        ];
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Historical Data Evolution'
+                    }
+                }
+            }
+        });
+    }
+}
+
+//#endregion LOCALSTORAGE
 
 //#region MENU
 let buttonDropDownCaptors = document.getElementById("dropdownDashboard");
@@ -172,9 +381,6 @@ document.addEventListener('DOMContentLoaded', function () {
 //#endregion DARK/LIGHT THEME
 
 //#region API
-const API_URL = "https://mocki.io/v1/d2c438e4-f9f3-4f8b-bdee-b59b0325bd4e"
-const API_TOKEN = "Bearer 12345-abcde"
-
 function getAuthHeaders() {
     return {
         "Authorization": API_TOKEN,
@@ -196,6 +402,7 @@ function fetchSensorData() {
         })
         .then(data => {
             updateTable(data);
+            verificationLocal(data)
         })
         .catch(error => {
             sendErrorMessage(error)
