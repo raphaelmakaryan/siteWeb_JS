@@ -463,7 +463,7 @@ header {
     flex-direction: row;
 }
 
-#titleGame{
+#titleGame {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -488,6 +488,10 @@ header {
 
     .apiFeed {
         width: 100%;
+    }
+
+    #galeriePubMain {
+        margin-top: 0px !important;
     }
 }
 
