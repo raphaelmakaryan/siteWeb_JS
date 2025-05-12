@@ -75,16 +75,18 @@ async function deleteImage(id) {
 let moving = true,
     allImagesPub = document.getElementsByClassName("carrouselPub"),
     totalImagesPub = allImagesPub.length,
-    slide = 0;
+    slide = 0, auto = false;
 
-setInterval(function () {
-    moving = false;
-    if (!moving) {
-        moveNext();
-    }
-}, 2000);
+if (auto) {
+    setInterval(function () {
+        moving = false;
+        if (!moving) {
+            moveNextAuto();
+        }
+    }, 2000);
+}
 
-function moveNext() {
+function moveNextAuto() {
     if (!moving) {
         if (slide === totalImagesPub - 1) {
             slide = 0;
@@ -95,8 +97,30 @@ function moveNext() {
     }
 }
 
+function moveNextMan(action) {
+    if (slide === totalImagesPub - 1) {
+        slide = 0;
+    } else if (action === "next") {
+        slide++;
+    } else if (action === "previous") {
+        slide--;
+    }
+    moveCarouselTo(slide);
+}
+
 function moveCarouselTo(slide) {
-    if (!moving) {
+    if (!moving && auto) {
+        let previousSlide = slide === 0 ? totalImagesPub - 1 : slide - 1;
+        let nextSlide = slide === totalImagesPub - 1 ? 0 : slide + 1;
+
+        for (let i = 0; i < totalImagesPub; i++) {
+            allImagesPub[i].classList.remove("carrouselPubSee");
+        }
+
+        allImagesPub[slide].classList.add("carrouselPubSee");
+        allImagesPub[previousSlide].classList.add("carrouselPubPrev");
+        allImagesPub[nextSlide].classList.add("carrouselPubNext");
+    } else if (!auto) {
         let previousSlide = slide === 0 ? totalImagesPub - 1 : slide - 1;
         let nextSlide = slide === totalImagesPub - 1 ? 0 : slide + 1;
 
