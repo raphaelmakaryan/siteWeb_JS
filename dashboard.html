@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./public/imgs/logo.png" type="image/x-icon">
+    <title>Site Web | Dashboard</title>
+    <link rel="stylesheet" href="./public/style/style.css" />
+</head>
+
+<body>
+    <header id="header">
+        <div>
+            <a href="./index.html" class="mt-1 mb-1">
+                <img src="./public/imgs/logo.png" alt="" id="logo">
+            </a>
+        </div>
+        <div id="dropdownHeader">
+            <button id="dropdownHeaderMain" class="forButtons dimensionButton">Menu</button>
+            <div id="dropdownHeaderList" class="dropdown">
+                <a href="./index.html" class="mt-1 mb-1">Index</a>
+                <a href="./galerie.html" class="mt-1 mb-1">Galerie</a>
+                <a href="./jeux.html" class="mt-1 mb-1">Game</a>
+                <a href="./dashboard.html" class="mt-1 mb-1">Dashboard</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="titleDashboard" class="mt-1 mb-2">
+        <h1>Dashboard Capteurs avec API sécurisée</h1>
+    </section>
+
+    <section id="dropdownDashboardMain" class="mt-1 mb-2">
+        <button id="dropdownDashboard" class="forButtons dimensionButton">Menu</button>
+        <div id="dropdownDashboardList" class="dropdown">
+            <button onclick="" class="mt-1 mb-1 forButtons">
+                Tous les capteurs
+            </button>
+            <button onclick="" class="mt-1 mb-1 forButtons">
+                Capteurs OK
+            </button>
+            <button onclick="" class="mt-1 mb-1 forButtons">
+                Capteurs en alerte
+            </button>
+        </div>
+    </section>
+
+    <section id="mainDashboard">
+        <section id="tableMainDashboard" class="mt-1 mb-2">
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Température (°C)</th>
+                    <th>Humidité (%)</th>
+                    <th>Statut</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                    <td>Germany</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="errorAPIDashboard" class="mt-1 mb-2">
+            <div id="forErrorAPIDashboard">
+                <div id="titleErrorAPI">
+                    <p>Zone d'erreur</p>
+                </div>
+                <div id="forErrorAPI">
+                    <div id="errorAPI">
+                        <p>Erreur !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="forCanvaDashboard" class="mt-1 mb-2">
+            <canvas id="canvaDashboard"></canvas>
+        </section>
+
+    </section>
+
+    <script src="./public/js/dashboard.js"></script>
+    <script src="./public/js/main.js"></script>
+</body>
+
+</html>

@@ -103,6 +103,10 @@ h1 {
     margin-left: 5rem !important;
 }
 
+.w-100 {
+    width: 100% !important;
+}
+
 /*#endregion MYRAPHSTRAP*/
 
 /*#region HEADER*/
@@ -127,7 +131,6 @@ header {
     align-items: center;
     display: none;
     border-radius: 0 0 var(--radius) var(--radius);
-    width: 100%;
 }
 
 #logo {
@@ -136,7 +139,7 @@ header {
 
 .dimensionButton {
     padding-left: 15px;
-    padding-right: 15px;
+    padding-right: 14px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -402,9 +405,12 @@ header {
     color: black;
 }
 
+.dropdown>a {
+    color: var(--white) !important;
+}
 
-#dropdownGameList>a {
-    color: black !important;
+.dropdown>p {
+    color: var(--white) !important;
 }
 
 #gameInformations {
@@ -463,13 +469,105 @@ header {
     flex-direction: row;
 }
 
-#titleGame{
+#titleGame {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 /*#endregion GAME*/
+
+/*#region DASHBOARD*/
+
+#titleDashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dropdownDashboardMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dropdownDashboard {
+    padding-right: 47px !important;
+    padding-left: 48px !important;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#forErrorAPI {
+    overflow-y: auto;
+}
+
+#errorAPIDashboard {
+    border-style: groove;
+    background-color: #c6c6c6;
+    width: auto;
+    height: 200px;
+    border: black solid 2px;
+}
+
+#titleErrorAPI {
+    border-top: 0 black solid;
+    border-left: 0 black solid;
+    border-right: 0 black solid;
+    border-bottom: 2px black solid;
+    border-style: outset;
+}
+
+#espaceErrorAPI {
+    padding: 80px;
+}
+
+#errorAPI {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 178px;
+    border-top: 2px black solid;
+    border-bottom: 2px black solid;
+}
+
+#errorAPI>p {
+    border-top: 2px black solid;
+    background-color: #fceaea;
+}
+
+#forCanvaDashboard {
+    background-color: gray;
+}
+
+#canvaDashboard {
+    display: flex;
+}
+
+#mainDashboard {
+    display: flex;
+    flex-direction: column
+}
+
+/*#endregion DASHBOARD*/
 
 /*#region MEDIAQUERYS*/
 
@@ -530,6 +628,25 @@ header {
 
     #feedCreatePost {
         margin-top: 5rem;
+    }
+
+    #dropdownDashboard {
+        padding-right: 48px !important;
+    }
+
+    #errorAPIDashboard {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #forErrorAPIDashboard {
+        width: 100%;
+    }
+
+    #mainDashboard {
+        align-items: center;
     }
 }
 
