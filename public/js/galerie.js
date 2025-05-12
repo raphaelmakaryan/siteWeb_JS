@@ -100,7 +100,7 @@ function moveNextAuto() {
 function moveNextMan(action) {
     if (slide === totalImagesPub - 1) {
         slide = 0;
-    } else if (action === "next"){
+    } else if (action === "next") {
         slide++;
     } else if (action === "previous") {
         slide--;
