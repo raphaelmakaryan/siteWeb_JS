@@ -32,16 +32,23 @@
     </section>
 
     <section id="dropdownDashboardMain" class="mt-1 mb-2">
-        <button id="dropdownDashboard" class="forButtons dimensionButton">Menu</button>
-        <div id="dropdownDashboardList" class="dropdown">
-            <button onclick="allCaptors()" class="mt-1 mb-1 forButtons">
-                Tous les capteurs
-            </button>
-            <button onclick="captorsOk()" class="mt-1 mb-1 forButtons">
-                Capteurs OK
-            </button>
-            <button onclick="captorsError()" class="mt-1 mb-1 forButtons">
-                Capteurs en alerte
+        <div id="forDropDown">
+            <button id="dropdownDashboard" class="forButtons dimensionButton">Menu</button>
+            <div id="dropdownDashboardList" class="dropdown">
+                <button onclick="allCaptors()" class="mt-1 mb-1 forButtons listDropdown">
+                    Tous les capteurs
+                </button>
+                <button onclick="captorsOk()" class="mt-1 mb-1 forButtons listDropdown">
+                    Capteurs OK
+                </button>
+                <button onclick="captorsError()" class="mt-1 mb-1 forButtons listDropdown">
+                    Capteurs en alerte
+                </button>
+            </div>
+        </div>
+        <div id="themeToggle" class="mt-1">
+            <button id="theme-toggle" class="forButtons dimensionButton">
+                Theme
             </button>
         </div>
     </section>

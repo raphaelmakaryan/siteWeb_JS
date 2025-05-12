@@ -6,6 +6,10 @@
     --error: #fceaea;
 }
 
+[data-theme="dark"] {
+    --white: #4a4a4a;
+}
+
 body {
     background-color: var(--white);
     margin: 0;
@@ -512,9 +516,12 @@ caption {
     font-weight: bold;
 }
 
-thead,
-tfoot {
-    background-color: rgb(228 240 245);
+tr {
+    background-color: white
+}
+
+thead>tr {
+    background-color: rgb(228 240 245) !important;
 }
 
 th,
@@ -527,17 +534,10 @@ td:last-of-type {
     text-align: center;
 }
 
+/*
 tbody>tr:nth-of-type(even) {
     background-color: rgb(237 238 242);
-}
-
-tfoot th {
-    text-align: right;
-}
-
-tfoot td {
-    font-weight: bold;
-}
+*/
 
 #forErrorAPI {
     overflow-y: auto;
@@ -578,6 +578,7 @@ tfoot td {
 }
 
 #canvaDashboard {
+    background-color: white;
     display: flex;
 }
 
@@ -588,6 +589,18 @@ tfoot td {
 
 .status-⚠ {
     background-color: var(--error) !important;
+}
+
+#theme-toggle {
+    color: white !important;
+}
+
+#dropdownDashboard {
+    color: white !important;
+}
+
+.listDropdown {
+    color: white !important;
 }
 
 /*#endregion DASHBOARD*/
