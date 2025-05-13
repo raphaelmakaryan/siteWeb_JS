@@ -1,0 +1,294 @@
+/*#region BODY*/
+:root {
+    --blue: #4a3aff;
+    --white: #ffffff;
+    --radius: 0.5rem;
+    --error: #fceaea;
+}
+
+[data-theme="dark"] {
+    --white: #4a4a4a;
+}
+
+body {
+    background-color: var(--white);
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    color: var(--white);
+}
+
+h1 {
+    color: var(--blue);
+}
+
+.noneButtons {
+    background-color: unset !important;
+    border-color: unset !important;
+    border-width: 0 !important;
+}
+
+.forButtons {
+    border-radius: var(--radius);
+    background-color: var(--blue);
+    color: var(--white);
+    border: solid 2px var(--blue);
+    font-size: 0.9rem;
+}
+
+/*#endregion BODY*/
+
+/*#region MYRAPHSTRAP*/
+
+.mt-1 {
+    margin-top: 1rem !important;
+}
+
+.mt-2 {
+    margin-top: 2rem !important;
+}
+
+.mt-3 {
+    margin-top: 3rem !important;
+}
+
+.mt-4 {
+    margin-top: 4rem !important;
+}
+
+.mt-5 {
+    margin-top: 5rem !important;
+}
+
+.mb-1 {
+    margin-bottom: 1rem !important;
+}
+
+.mb-2 {
+    margin-bottom: 2rem !important;
+}
+
+.mb-3 {
+    margin-bottom: 3rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 4rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 5rem !important;
+}
+
+.ms-1 {
+    margin-left: 1rem !important;
+}
+
+.ms-2 {
+    margin-left: 2rem !important;
+}
+
+.ms-3 {
+    margin-left: 3rem !important;
+}
+
+.ms-4 {
+    margin-left: 4rem !important;
+}
+
+.ms-5 {
+    margin-left: 5rem !important;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+/*#endregion MYRAPHSTRAP*/
+
+/*#region HEADER*/
+header {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#dropdownHeader {
+    color: black !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown {
+    background-color: var(--blue);
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+
+#logo {
+    width: 40%;
+}
+
+.dimensionButton {
+    padding-left: 15px;
+    padding-right: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*#endregion HEADER*/
+
+/*#region MEDIAQUERYS*/
+
+/*! Tel*/
+@media only screen and (max-width: 992px) {
+    #optionsForImageSee {
+        display: none;
+    }
+
+    #feedPage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .apiFeed {
+        width: 100%;
+    }
+
+    #galeriePubMain {
+        margin-top: 0px !important;
+    }
+
+    .buttonsPaginations {
+        width: 15%;
+    }
+
+    #rightArrow {
+        right: 125px;
+        z-index: 1000;
+    }
+
+    #leftArrow {
+        left: 125px;
+        z-index: 1000;
+    }
+
+    .buttonsPaginations>img {
+        width: 50px;
+    }
+}
+
+/*! PC*/
+@media only screen and (min-width: 992px) {
+    .carrouselPub {
+        width: 50%;
+    }
+
+    .cardsGameEasy {
+        width: 8%;
+    }
+
+    .cardsGameMedium {
+        width: 8%;
+    }
+
+    .cardsGameHard {
+        width: 4%;
+    }
+
+    .forFeedPost {
+        margin-left: 23%;
+        margin-right: 23%;
+    }
+
+    .iconDeleteGalerie {
+        width: 8%;
+        position: relative;
+        top: 29rem;
+        left: 17rem;
+    }
+
+    #forAdd {
+        padding-top: 1%;
+        padding-right: 4%;
+        padding-left: 4%;
+        padding-bottom: 1%;
+    }
+
+    #feedCreatePost {
+        margin-top: 5rem;
+    }
+
+    #dropdownDashboard {
+        padding-right: 48px !important;
+    }
+
+    #errorAPIDashboard {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #forErrorAPIDashboard {
+        width: 100%;
+    }
+
+    #mainDashboard {
+        align-items: center;
+    }
+
+    #formSearchPokemon {
+        display: flex;
+        flex-direction: row;
+    }
+
+    #forSearchPokemon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #forInputSearchPokemon {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 1rem;
+    }
+
+    #labelSearchPokemon {
+        margin-bottom: 0.3rem;
+        margin-right: 0.5rem;
+    }
+
+    #forSumbitSearchPokemon {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #forOptionsPokemon {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+}
+
+/*#endregion MEDIAQUERYS*/

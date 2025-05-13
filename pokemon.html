@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="./public/imgs/logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Web | Pokemon</title>
+    <link rel="stylesheet" href="./public/styles/pokemon.css" />
+    <link rel="stylesheet" href="./public/styles/main.css" />
+</head>
+
+<body>
+
+    <header id="header">
+        <div>
+            <a href="./index.html" class="mt-1 mb-1">
+                <img src="./public/imgs/logo.png" alt="" id="logo">
+            </a>
+        </div>
+        <div id="dropdownHeader">
+            <button id="dropdownHeaderMain" class="forButtons dimensionButton">Menu</button>
+            <div id="dropdownHeaderList" class="dropdown">
+                <a href="./index.html" class="mt-1 mb-1">Index</a>
+                <a href="./galerie.html" class="mt-1 mb-1">Galerie</a>
+                <a href="./jeux.html" class="mt-1 mb-1">Game</a>
+                <a href="./dashboard.html" class="mt-1 mb-1">Dashboard</a>
+                <a href="./pokemon.html" class="mt-1 mb-1">Pokemon</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="forErrorMessage">
+    </section>
+
+    <section id="forSearchPokemon" class="mt-2 mb-2">
+        <div id="forInputSearchPokemon" class="mt-1 mb-1">
+            <label for="searchPokemon" id="labelSearchPokemon">Nom Pokémon</label>
+            <input type="search" name="searchPokemon" id="inputSearchPokemon" required>
+        </div>
+        <div id="forSumbitSearchPokemon" class="mt-1 mb-1">
+            <button type="submit" onclick="searchPokemon()">Rechercher</button>
+        </div>
+    </section>
+
+    <section id="forOptionsPokemon" class="mt-2 mb-2">
+        <button>Précedent</button>
+        <button>Aleatoire</button>
+        <button>Suivant</button>
+    </section>
+
+    <section id="forAfterSearchPokemon" class="mt-2 mb-2">
+    </section>
+
+
+
+    <script src="./public/js/main.js"></script>
+    <script src="./public/js/pokemon.js"></script>
+</body>
+
+</html>

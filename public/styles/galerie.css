@@ -1,0 +1,125 @@
+/*#region GALERIE*/
+
+#galerieMain {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#galeriePage {
+    display: flex;
+}
+
+.forGalerieImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.galerieImage {
+    width: 90%;
+}
+
+.iconOptionsGalerie {
+    width: 8%;
+}
+
+#galerieOptions {
+    /*width: 10%;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mosaique {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.colonne {
+    flex-direction: column;
+    align-items: center;
+}
+
+#optionsForImageSee {
+    display: flex;
+    flex-direction: row;
+}
+
+.iconDeleteGalerie {
+    width: 8%;
+    position: relative;
+    top: 15rem;
+    left: 9rem;
+}
+
+.buttonsDeleteGalerie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#galeriePubCarouselWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+    /*width: 90%;*/
+}
+
+#galeriePubCarousel {
+    transform-style: preserve-3d;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrouselPub {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin: auto;
+    padding: 1rem 4rem;
+    z-index: 100;
+    transition: transform .5s, opacity .5s, z-index .5s;
+}
+
+.carrouselPubSee {
+    opacity: 1;
+    position: relative;
+    z-index: 900;
+}
+
+.buttonsPaginations {
+    position: relative;
+    display: flex;
+    width: 5%;
+    height: 5%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonsPaginations>img {
+    width: 55%;
+}
+
+#leftArrow {
+    left: 250px;
+}
+
+#rightArrow {
+    right: 250px;
+}
+
+
+
+/*#endregion GALERIE*/

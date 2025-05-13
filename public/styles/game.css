@@ -1,0 +1,79 @@
+/*#region GAME*/
+#chooseDifficulty {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: black;
+}
+
+.dropdown>a {
+    color: var(--white) !important;
+}
+
+.dropdown>p {
+    color: var(--white) !important;
+}
+
+#gameInformations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#gameBoard {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+
+#newValue {
+    color: orange;
+}
+
+.cardsGameEasy {
+    width: 10%;
+    margin: 1rem;
+}
+
+.cardsGameMedium {
+    width: 10%;
+    margin: 1rem;
+}
+
+.cardsGameHard {
+    width: 7%;
+    margin: 1rem;
+}
+
+#win {
+    font-size: 2rem;
+    color: green;
+}
+
+#loose {
+    font-size: 2rem;
+    color: red;
+}
+
+#profilMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoProfil {
+    display: flex;
+    flex-direction: row;
+}
+
+#titleGame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*#endregion GAME*/

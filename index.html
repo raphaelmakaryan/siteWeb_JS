@@ -6,51 +6,54 @@
   <link rel="shortcut icon" href="./public/imgs/logo.png" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Site Web | Home</title>
-  <link rel="stylesheet" href="./public/style/style.css" />
+  <link rel="stylesheet" href="./public/styles/index.css" />
+  <link rel="stylesheet" href="./public/styles/main.css" />
 </head>
 
 <body>
 
-   <header id="header">
-        <div>
-            <a href="./index.html" class="mt-1 mb-1">
-                <img src="./public/imgs/logo.png" alt="" id="logo">
-            </a>
-        </div>
-        <div id="dropdownHeader">
-            <button id="dropdownHeaderMain" class="forButtons dimensionButton">Menu</button>
-            <div id="dropdownHeaderList" class="dropdown">
-                <a href="./index.html" class="mt-1 mb-1">Index</a>
-                <a href="./galerie.html" class="mt-1 mb-1">Galerie</a>
-                <a href="./jeux.html" class="mt-1 mb-1">Game</a>
-                <a href="./dashboard.html" class="mt-1 mb-1">Dashboard</a>
-            </div>
-        </div>
-    </header>
+  <header id="header">
+    <div>
+      <a href="./index.html" class="mt-1 mb-1">
+        <img src="./public/imgs/logo.png" alt="" id="logo">
+      </a>
+    </div>
+    <div id="dropdownHeader">
+      <button id="dropdownHeaderMain" class="forButtons dimensionButton">Menu</button>
+      <div id="dropdownHeaderList" class="dropdown">
+        <a href="./index.html" class="mt-1 mb-1">Index</a>
+        <a href="./galerie.html" class="mt-1 mb-1">Galerie</a>
+        <a href="./jeux.html" class="mt-1 mb-1">Game</a>
+        <a href="./dashboard.html" class="mt-1 mb-1">Dashboard</a>
+        <a href="./pokemon.html" class="mt-1 mb-1">Pokemon</a>
+      </div>
+    </div>
+  </header>
 
   <section id="modalPost">
     <div id="modalPostContent">
       <div id="modalPostHeader">
-        <button id="closeModalPost" class="forButtons" onclick="closeModalPost()"><img src="./public/imgs/close.png" alt=""></button>
+        <button id="closeModalPost" class="forButtons" onclick="closeModalPost()"><img src="./public/imgs/close.png"
+            alt=""></button>
       </div>
       <div id="modalPostBody">
         <div id="feedCreatePost" class="mb-2">
           <h2 id="titleCreatePost">Create a post</h2>
-            <div class="mb-1">
-              <label for="questionCreatePost" class="optionsCreatePost">Question :</label>
-              <input type="text" id="questionCreate" name="questionCreatePost" required />
-            </div>
-            <div class=" mb-1">
-              <label for="questionCreatePost" class="optionsCreatePost">Answer :</label>
-              <input type="text" id="reponseCreate" name="reponseCreatePost" required />
-            </div>
-            <div class=" mb-1">
-              <label for="idCreate" class="optionsCreatePost">ID :</label>
-              <input type="number" id="idCreate" name="idCreatePost" required />
-            </div>
-            <div class="mb-1" id="forSubmit">
-              <button type="submit" id="forAdd" class="forButtons" onclick="createPostManuel()">Add !</button>
-            </div>
+          <div class="mb-1">
+            <label for="questionCreatePost" class="optionsCreatePost">Question :</label>
+            <input type="text" id="questionCreate" name="questionCreatePost" required />
+          </div>
+          <div class=" mb-1">
+            <label for="questionCreatePost" class="optionsCreatePost">Answer :</label>
+            <input type="text" id="reponseCreate" name="reponseCreatePost" required />
+          </div>
+          <div class=" mb-1">
+            <label for="idCreate" class="optionsCreatePost">ID :</label>
+            <input type="number" id="idCreate" name="idCreatePost" required />
+          </div>
+          <div class="mb-1" id="forSubmit">
+            <button type="submit" id="forAdd" class="forButtons" onclick="createPostManuel()">Add !</button>
+          </div>
         </div>
   </section>
 
@@ -66,10 +69,12 @@
           <h1>JOKE</h1>
         </div>
         <div id="feedOptions" class="mb-2">
-          <button type="button" value="Ajouter" id="buttonAdding" class="forButtons buttonsOptions" onclick="addingPostModal()">
+          <button type="button" value="Ajouter" id="buttonAdding" class="forButtons buttonsOptions"
+            onclick="addingPostModal()">
             Add
           </button>
-          <button type="button" value="Recharger" id="buttonRecharg" class="forButtons buttonsOptions" onclick="rechargPost(5)">
+          <button type="button" value="Recharger" id="buttonRecharg" class="forButtons buttonsOptions"
+            onclick="rechargPost(5)">
             Recharge
           </button>
         </div>
