@@ -20,16 +20,16 @@ function resetSearch(div) {
 //#endregion RESETFORSEARCH
 
 //#region ERROR
-function errorMessage(erreur) {
+function showError(erreur) {
     divErrorMessage.innerHTML +=
-        `
+    `
     <p>${erreur}</p>
     `
 }
 //#endregion ERROR
 
 //#region DELETEHAVEPOKEMON
-function deleteHavePokemon() {
+function clearDisplay() {
     divPokemonInfo.innerHTML = ""
     return true
 }
@@ -38,7 +38,7 @@ function deleteHavePokemon() {
 //#region VERIFICATION
 function verificationHavePokemon() {
     if (divPokemonInfo.children.length != 0) {
-        return deleteHavePokemon()
+        return clearDisplay()
     }
     return true
 }
@@ -69,7 +69,7 @@ function statsPokemon(data) {
 //#endregion STATS
 
 //#region INSERTDATA
-function insertData(valeur) {
+function renderPokemon(valeur) {
     let image = valeur.sprites?.front_default || "https://placehold.co/250x250"
     let name = valeur.name
     let id = valeur.id
@@ -170,7 +170,7 @@ async function fetchPokemon(nomOuId) {
     });
 
     if (!response.ok) {
-        errorMessage("Le pokémon que vous avez écris n'existe pas !")
+        showError("Le pokémon que vous avez écris n'existe pas !")
         return null
     } else {
         return response.json();
@@ -182,7 +182,7 @@ async function fetchPokemon(nomOuId) {
 function previousPokemon() {
     const getLastID = localStorage.getItem("lastIdPokemon");
     if (!getLastID) {
-        errorMessage("Vous n'avez pas encore chercher de pokemon !")
+        showError("Vous n'avez pas encore chercher de pokemon !")
     } else {
         let newId = parseInt(getLastID) - 1
         searchPokemon(newId)
@@ -194,7 +194,7 @@ function previousPokemon() {
 function nextPokemon() {
     const getLastID = localStorage.getItem("lastIdPokemon");
     if (!getLastID) {
-        errorMessage("Vous n'avez pas encore chercher de pokemon !")
+        showError("Vous n'avez pas encore chercher de pokemon !")
     } else {
         let newId = parseInt(getLastID) + 1
         searchPokemon(newId)
@@ -216,7 +216,7 @@ function searchPokemon(valeur) {
         if (verificationHavePokemon()) {
             fetchPokemon(haveValue || valeur).then(async (donnees) => {
                 if (await loaderFunction() === true) {
-                    insertData(donnees);
+                    renderPokemon(donnees);
                 }
             });
             resetSearch(valueInput)
