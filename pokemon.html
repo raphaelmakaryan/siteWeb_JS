@@ -39,14 +39,14 @@
             <input type="search" name="searchPokemon" id="inputSearchPokemon" required>
         </div>
         <div id="forSumbitSearchPokemon" class="mt-1 mb-1">
-            <button type="submit" onclick="searchPokemon()">Rechercher</button>
+            <button type="submit" onclick="searchPokemon(null)">Rechercher</button>
         </div>
     </section>
 
     <section id="forOptionsPokemon" class="mt-2 mb-2">
-        <button>Précedent</button>
+        <button onclick="previousPokemon()">Précedent</button>
         <button>Aleatoire</button>
-        <button>Suivant</button>
+        <button onclick="nextPokemon()">Suivant</button>
     </section>
 
     <section id="forAfterSearchPokemon" class="mt-2 mb-2">

@@ -3,6 +3,15 @@ const divErrorMessage = document.getElementById("forErrorMessage")
 const divPokemonInfo = document.getElementById("forAfterSearchPokemon")
 //#endregion VARIABLES
 
+//#region STOCK ID
+function stockId(id) {
+    const getLastID = localStorage.getItem("lastIdPokemon");
+    if (!getLastID || getLastID) {
+        localStorage.setItem("lastIdPokemon", JSON.stringify(id));
+    }
+}
+//#endregion STOCK ID
+
 //#region RESETFORSEARCH
 function resetSearch(div) {
     div.value = "";
@@ -37,29 +46,34 @@ function verificationHavePokemon() {
 
 //#region TYPES
 function typesPokemon(data) {
-    let allTypes = []
-    data.forEach(element => {
-        allTypes.push(element.type.name)
-    });
-    return allTypes
+    if (data) {
+        let allTypes = []
+        data.forEach(element => {
+            allTypes.push(element.type.name)
+        });
+        return allTypes
+    }
 }
 //#endregion TYPES
 
 //#region STATS
 function statsPokemon(data) {
-    let allStats = []
-    data.forEach(element => {
-        allStats.push(element.stat.name)
-    });
-    return allStats
+    if (data) {
+        let allStats = []
+        data.forEach(element => {
+            allStats.push(element.stat.name)
+        });
+        return allStats
+    }
 }
 //#endregion STATS
 
 //#region INSERTDATA
 function insertData(valeur) {
-    let image = valeur.sprites.front_default
+    let image = valeur.sprites?.front_default || "https://placehold.co/250x250"
     let name = valeur.name
     let id = valeur.id
+    stockId(id)
     let types = typesPokemon(valeur.types)
     let stats = statsPokemon(valeur.stats)
 
@@ -135,7 +149,8 @@ function insertData(valeur) {
 
 //#region API
 async function fetchPokemon(nomOuId) {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${nomOuId}`, {
+    let url = `https://pokeapi.co/api/v2/pokemon/${nomOuId}`
+    const response = await fetch(url, {
         method: "GET",
         mode: "cors",
         cache: "no-cache",
@@ -151,13 +166,37 @@ async function fetchPokemon(nomOuId) {
 }
 //#endregion API
 
+//#region PREVIOUS
+function previousPokemon() {
+    const getLastID = localStorage.getItem("lastIdPokemon");
+    if (!getLastID) {
+        errorMessage("Vous n'avez pas encore chercher de pokemon !")
+    } else {
+        let newId = parseInt(getLastID) - 1
+        searchPokemon(newId)
+    }
+}
+//#endregion PREVIOUS
+
+//#region NEXT
+function nextPokemon() {
+    const getLastID = localStorage.getItem("lastIdPokemon");
+    if (!getLastID) {
+        errorMessage("Vous n'avez pas encore chercher de pokemon !")
+    } else {
+        let newId = parseInt(getLastID) + 1
+        searchPokemon(newId)
+    }
+}
+//#endregion NEXT
+
 //#region SEARCH
-function searchPokemon() {
+function searchPokemon(valeur) {
     const valueInput = document.getElementById("inputSearchPokemon")
     let haveValue = valueInput.value
-    if (haveValue) {
+    if (haveValue || valeur != null) {
         if (verificationHavePokemon()) {
-            fetchPokemon(haveValue).then((donnees) => {
+            fetchPokemon(haveValue || valeur).then((donnees) => {
                 insertData(donnees)
             });
             resetSearch(valueInput)
