@@ -104,7 +104,7 @@ function insertData(valeur) {
     //! MoreInfo
     let forMoreInfo = document.createElement("div")
     forMoreInfo.id = "moreInfoAfterSearchPokemon";
-    forMoreInfo.className = "mt-1";
+    forMoreInfo.className = "mt-1 mb-1";
 
     //& Type
     let typePokemon = document.createElement("div")
@@ -189,6 +189,12 @@ function nextPokemon() {
     }
 }
 //#endregion NEXT
+
+//#region RANDOM
+function randomPokemon() {
+    searchPokemon(Math.floor(Math.random() * 151))
+}
+//#endregion RANDOM
 
 //#region SEARCH
 function searchPokemon(valeur) {
