@@ -27,6 +27,19 @@
 
 #forOptionsPokemon {
     display: flex;
+    flex-direction: column;
+}
+
+#principalOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+#otherOptions {
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
@@ -145,7 +158,6 @@
     }
 }
 
-
 @keyframes swingAnim {
 
     0%,
@@ -174,4 +186,5 @@
         transform: translateX(-6px) rotate(1.2deg);
     }
 }
+
 /*#endregion POKEMON*/

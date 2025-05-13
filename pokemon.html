@@ -36,17 +36,23 @@
     <section id="forSearchPokemon" class="mt-2 mb-2">
         <div id="forInputSearchPokemon" class="mt-1 mb-1">
             <label for="searchPokemon" id="labelSearchPokemon">Nom Pokémon</label>
-            <input type="search" name="searchPokemon" id="inputSearchPokemon" required>
+            <input type="search" name="searchPokemon" id="inputSearchPokemon"  required>
         </div>
         <div id="forSumbitSearchPokemon" class="mt-1 mb-1">
-            <button type="submit" onclick="searchPokemon(null)">Rechercher</button>
+            <button type="submit" class="forButtons dimensionButton" id="searchButton" onclick="searchPokemon(null)">Rechercher</button>
         </div>
     </section>
 
     <section id="forOptionsPokemon" class="mt-2 mb-2">
-        <button onclick="previousPokemon()">Précedent</button>
-        <button onclick="randomPokemon()">Aleatoire</button>
-        <button onclick="nextPokemon()">Suivant</button>
+        <div id="principalOptions" class="">
+            <button id="previousButton" class="forButtons dimensionButton" onclick="previousPokemon()">Précedent</button>
+            <button id="randomButton" class="forButtons dimensionButton" onclick="randomPokemon()">Aleatoire</button>
+            <button id="nextButton" class="forButtons dimensionButton" onclick="nextPokemon()">Suivant</button>
+        </div>
+        <div id="otherOptions" class="mt-1 mb-1">
+            <button id="rotationButton" class="forButtons dimensionButton" onclick="rotationPokemon()">Démarrer la rotation</button>
+            <button id="stopRotationButton" class="forButtons dimensionButton" onclick="stopRotationPokemon()">Arreter la rotation</button>
+        </div>
     </section>
 
     <section id="loader" class="mt-3 mb-2" style="display: none;">

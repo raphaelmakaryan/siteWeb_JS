@@ -1,6 +1,13 @@
 //#region VARIABLES
 const divErrorMessage = document.getElementById("forErrorMessage")
 const divPokemonInfo = document.getElementById("forAfterSearchPokemon")
+let searchButton = document.getElementById("searchButton")
+let previousButton = document.getElementById("previousButton")
+let randomButton = document.getElementById("randomButton")
+let nextButton = document.getElementById("nextButton")
+let rotationButton = document.getElementById("rotationButton")
+let haveRotation = false
+let interval
 //#endregion VARIABLES
 
 //#region STOCK ID
@@ -22,7 +29,7 @@ function resetSearch(div) {
 //#region ERROR
 function showError(erreur) {
     divErrorMessage.innerHTML +=
-    `
+        `
     <p>${erreur}</p>
     `
 }
@@ -154,10 +161,44 @@ function loaderFunction() {
         setTimeout(() => {
             document.getElementById("loader").style.display = "none";
             resolve(true);
-        }, 2000);
+        }, 1000);
     });
 }
 //#endregion LOADER 
+
+//#region PLAYROTATION 
+function rotationPokemon() {
+    searchButton.className = "forButtons dimensionButton disabled"
+    searchButton.setAttribute("disabled", "true")
+    previousButton.className = "forButtons dimensionButton disabled"
+    previousButton.setAttribute("disabled", "true")
+    randomButton.className = "forButtons dimensionButton disabled"
+    randomButton.setAttribute("disabled", "true")
+    nextButton.className = "forButtons dimensionButton disabled"
+    nextButton.setAttribute("disabled", "true")
+    rotationButton.className = "forButtons dimensionButton disabled"
+    rotationButton.setAttribute("disabled", "true")
+    interval = setInterval(
+        randomPokemon(), 5000
+    )
+}
+//#endregion PLAYROTATION 
+
+//#region STOPROTATION
+function stopRotationPokemon() {
+    searchButton.className = "forButtons dimensionButton"
+    searchButton.setAttribute("disabled", "false")
+    previousButton.className = "forButtons dimensionButton"
+    previousButton.setAttribute("disabled", "false")
+    randomButton.className = "forButtons dimensionButton"
+    randomButton.setAttribute("disabled", "false")
+    nextButton.className = "forButtons dimensionButton"
+    nextButton.setAttribute("disabled", "false")
+    rotationButton.className = "forButtons dimensionButton"
+    rotationButton.setAttribute("disabled", "false")
+    clearInterval();
+}
+//#endregion STOPROTATION 
 
 //#region API
 async function fetchPokemon(nomOuId) {
