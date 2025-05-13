@@ -114,6 +114,25 @@
     animation: spin 2s linear infinite;
 }
 
+#forNewsFeedPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newsFeedPokemon {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--blue);
+    border-radius: 5%;
+    animation: bottomBounce 2s ease 0s 1 normal forwards;
+}
+
+#newsFeedPokemon>a {
+    color: unset !important;
+}
+
 @-webkit-keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);
@@ -184,6 +203,52 @@
 
     75% {
         transform: translateX(-6px) rotate(1.2deg);
+    }
+}
+
+@keyframes bottomBounce {
+    0% {
+        animation-timing-function: ease-in;
+        opacity: 1;
+        transform: translateY(45px);
+    }
+
+    24% {
+        opacity: 1;
+    }
+
+    40% {
+        animation-timing-function: ease-in;
+        transform: translateY(24px);
+    }
+
+    65% {
+        animation-timing-function: ease-in;
+        transform: translateY(12px);
+    }
+
+    82% {
+        animation-timing-function: ease-in;
+        transform: translateY(6px);
+    }
+
+    93% {
+        animation-timing-function: ease-in;
+        transform: translateY(4px);
+    }
+
+    25%,
+    55%,
+    75%,
+    87% {
+        animation-timing-function: ease-out;
+        transform: translateY(0px);
+    }
+
+    100% {
+        animation-timing-function: ease-out;
+        opacity: 1;
+        transform: translateY(0px);
     }
 }
 

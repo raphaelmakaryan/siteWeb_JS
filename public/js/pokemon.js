@@ -75,7 +75,7 @@ function statsPokemon(data) {
 //#endregion STATS
 
 //#region INSERTDATA
-function renderPokemon(valeur) {
+function renderPokemon(valeur, action) {
     let image = valeur.sprites?.front_default || "https://placehold.co/250x250"
     let name = valeur.name
     let id = valeur.id
@@ -83,92 +83,99 @@ function renderPokemon(valeur) {
     let types = typesPokemon(valeur.types)
     let stats = statsPokemon(valeur.stats)
 
-    //! PRINCIPALE
-    let mainDiv = document.createElement("div")
-    mainDiv.id = "afterSearchPokemon";
+    if (action === "news") {
+        displayNewsFeedPokemon(image, name, id)
+    } else {
+        //! PRINCIPALE
+        let mainDiv = document.createElement("div")
+        mainDiv.id = "afterSearchPokemon";
 
-    //! IMG
-    let forImg = document.createElement("div")
-    forImg.id = "imgAfterSearchPokemon";
-    let img = document.createElement("img")
-    img.src = image
-    forImg.appendChild(img)
+        //! IMG
+        let forImg = document.createElement("div")
+        forImg.id = "imgAfterSearchPokemon";
+        let img = document.createElement("img")
+        img.src = image
+        forImg.appendChild(img)
 
-    //! Info
-    let forInfo = document.createElement("div")
-    forInfo.id = "infoAfterSearchPokemon";
-    let divName = document.createElement("p")
-    divName.innerText = `Name : ${name}`;
-    let divId = document.createElement("p")
-    divId.innerText = `ID : ${id}`;
-    let separation = document.createElement("hr")
-    separation.style.width = "100%";
-    forInfo.appendChild(divName)
-    forInfo.appendChild(divId)
-    forInfo.appendChild(separation)
+        //! Info
+        let forInfo = document.createElement("div")
+        forInfo.id = "infoAfterSearchPokemon";
+        let divName = document.createElement("p")
+        divName.innerText = `Name : ${name}`;
+        let divId = document.createElement("p")
+        divId.innerText = `ID : ${id}`;
+        let separation = document.createElement("hr")
+        separation.style.width = "100%";
+        forInfo.appendChild(divName)
+        forInfo.appendChild(divId)
+        forInfo.appendChild(separation)
 
-    //! MoreInfo
-    let forMoreInfo = document.createElement("div")
-    forMoreInfo.id = "moreInfoAfterSearchPokemon";
-    forMoreInfo.className = "mt-1 mb-1";
+        //! MoreInfo
+        let forMoreInfo = document.createElement("div")
+        forMoreInfo.id = "moreInfoAfterSearchPokemon";
+        forMoreInfo.className = "mt-1 mb-1";
 
-    //& Type
-    let typePokemon = document.createElement("div")
-    typePokemon.id = "typePokemon";
-    let titleType = document.createElement("p")
-    titleType.className = "titleInfoPokemon";
-    titleType.innerText = "Types :";
-    let listTypes = document.createElement("ul")
-    listTypes.className = "listMoreInfo";
-    for (let index = 0; index < types.length; index++) {
-        let listType = document.createElement("li")
-        listType.innerText = types[index];
-        listTypes.appendChild(listType)
-        typePokemon.appendChild(titleType)
+        //& Type
+        let typePokemon = document.createElement("div")
+        typePokemon.id = "typePokemon";
+        let titleType = document.createElement("p")
+        titleType.className = "titleInfoPokemon";
+        titleType.innerText = "Types :";
+        let listTypes = document.createElement("ul")
+        listTypes.className = "listMoreInfo";
+        for (let index = 0; index < types.length; index++) {
+            let listType = document.createElement("li")
+            listType.innerText = types[index];
+            listTypes.appendChild(listType)
+            typePokemon.appendChild(titleType)
+        }
+        typePokemon.appendChild(listTypes)
+        forMoreInfo.appendChild(typePokemon)
+
+        //& Stats
+        let divStatsPokemon = document.createElement("div")
+        divStatsPokemon.id = "statsPokemon";
+        let titleStats = document.createElement("p")
+        titleStats.className = "titleInfoPokemon";
+        titleStats.innerText = "Stats :";
+        let listStats = document.createElement("ul")
+        listStats.className = "listMoreInfo";
+        divStatsPokemon.appendChild(titleStats)
+        for (let index = 0; index < stats.length; index++) {
+            let listStats = document.createElement("li")
+            listStats.innerText = stats[index];
+            divStatsPokemon.appendChild(listStats)
+        }
+        forMoreInfo.appendChild(divStatsPokemon)
+
+
+        mainDiv.appendChild(forImg)
+        mainDiv.appendChild(forInfo)
+        mainDiv.appendChild(forMoreInfo)
+        divPokemonInfo.appendChild(mainDiv)
     }
-    typePokemon.appendChild(listTypes)
-    forMoreInfo.appendChild(typePokemon)
-
-    //& Stats
-    let divStatsPokemon = document.createElement("div")
-    divStatsPokemon.id = "statsPokemon";
-    let titleStats = document.createElement("p")
-    titleStats.className = "titleInfoPokemon";
-    titleStats.innerText = "Stats :";
-    let listStats = document.createElement("ul")
-    listStats.className = "listMoreInfo";
-    divStatsPokemon.appendChild(titleStats)
-    for (let index = 0; index < stats.length; index++) {
-        let listStats = document.createElement("li")
-        listStats.innerText = stats[index];
-        divStatsPokemon.appendChild(listStats)
-    }
-    forMoreInfo.appendChild(divStatsPokemon)
-
-
-    mainDiv.appendChild(forImg)
-    mainDiv.appendChild(forInfo)
-    mainDiv.appendChild(forMoreInfo)
-    divPokemonInfo.appendChild(mainDiv)
 }
 //#endregion INSERTDATA
 
 //#region LOADER 
-function loaderFunction() {
-    document.getElementById("loader").style.display = "flex";
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            document.getElementById("loader").style.display = "none";
-            resolve(true);
-        }, 1000);
-    });
+function loaderFunction(action) {
+    if (action != "news") {
+        document.getElementById("loader").style.display = "flex";
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                resolve(true);
+            }, 1000);
+        });
+    }
+    return false
 }
 //#endregion LOADER 
 
 //#region PLAYROTATION 
 function startRotation() {
     interval = setInterval(() => {
-        randomPokemon();
+        randomPokemon("rotation");
     }, 5000);
 }
 
@@ -206,6 +213,36 @@ function stopRotationPokemon() {
     stopRotation();
 }
 //#endregion STOPROTATION 
+
+//#region NEWSFEED
+setInterval(() => {
+    newsFeed();
+}, 10000);
+
+function newsFeed() {
+    randomPokemon("news")
+}
+//#endregion NEWSFEED
+
+//#region DISPLAYPOKEMONNEWSFEED
+function displayNewsFeedPokemon(image, nom, id) {
+    const news = document.getElementById("forNewsFeedPokemon")
+
+    news.innerHTML =
+        `
+     <div id="newsFeedPokemon">
+            <a onclick="${id}">
+                <div id="imgAfterSearchPokemon"><img
+                        src="${image}"></div>
+                <div id="infoAfterSearchPokemon">
+                    <p>Name : ${nom}</p>
+                </div>
+            </a>
+        </div>
+    `
+    //searchPokemon()
+}
+//#endregion DISPLAYPOKEMONNEWSFEED
 
 //#region API
 async function fetchPokemon(nomOuId) {
@@ -251,20 +288,22 @@ function nextPokemon() {
 //#endregion NEXT
 
 //#region RANDOM
-function randomPokemon() {
-    searchPokemon(Math.floor(Math.random() * 151))
+function randomPokemon(action) {
+    searchPokemon(Math.floor(Math.random() * 151), action)
 }
 //#endregion RANDOM
 
 //#region SEARCH
-function searchPokemon(valeur) {
+function searchPokemon(valeur, action) {
     const valueInput = document.getElementById("inputSearchPokemon")
     let haveValue = valueInput.value
     if (haveValue || valeur != null) {
         if (verificationHavePokemon()) {
             fetchPokemon(haveValue || valeur).then(async (donnees) => {
-                if (await loaderFunction() === true) {
-                    renderPokemon(donnees);
+                if (await loaderFunction(action) === true) {
+                    renderPokemon(donnees, action);
+                } else {
+                    renderPokemon(donnees, action);
                 }
             });
             resetSearch(valueInput)
