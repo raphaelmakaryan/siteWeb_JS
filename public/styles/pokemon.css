@@ -32,4 +32,54 @@
     align-items: center;
 }
 
+#forAfterSearchPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#afterSearchPokemon {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+    /* align-items: center*/
+    border-radius: 5%;
+}
+
+#imgAfterSearchPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#infoAfterSearchPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#infoAfterSearchPokemon>p {
+    margin-bottom: 0.5rem;
+}
+
+#moreInfoAfterSearchPokemon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#typePokemon {
+    display: flex;
+    flex-direction: column;
+}
+
+.listMoreInfo {
+    padding-left: 0.5rem;
+}
+
+.titleInfoPokemon {
+    text-decoration: underline;
+}
+
 /*#endregion POKEMON*/
