@@ -147,6 +147,18 @@ function insertData(valeur) {
 }
 //#endregion INSERTDATA
 
+//#region LOADER 
+function loaderFunction() {
+    document.getElementById("loader").style.display = "flex";
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            document.getElementById("loader").style.display = "none";
+            resolve(true);
+        }, 2000);
+    });
+}
+//#endregion LOADER 
+
 //#region API
 async function fetchPokemon(nomOuId) {
     let url = `https://pokeapi.co/api/v2/pokemon/${nomOuId}`
@@ -202,8 +214,10 @@ function searchPokemon(valeur) {
     let haveValue = valueInput.value
     if (haveValue || valeur != null) {
         if (verificationHavePokemon()) {
-            fetchPokemon(haveValue || valeur).then((donnees) => {
-                insertData(donnees)
+            fetchPokemon(haveValue || valeur).then(async (donnees) => {
+                if (await loaderFunction() === true) {
+                    insertData(donnees);
+                }
             });
             resetSearch(valueInput)
         }
