@@ -6,8 +6,7 @@ let previousButton = document.getElementById("previousButton")
 let randomButton = document.getElementById("randomButton")
 let nextButton = document.getElementById("nextButton")
 let rotationButton = document.getElementById("rotationButton")
-let haveRotation = false
-let interval
+let interval;
 //#endregion VARIABLES
 
 //#region STOCK ID
@@ -167,6 +166,12 @@ function loaderFunction() {
 //#endregion LOADER 
 
 //#region PLAYROTATION 
+function startRotation() {
+    interval = setInterval(() => {
+        randomPokemon();
+    }, 5000);
+}
+
 function rotationPokemon() {
     searchButton.className = "forButtons dimensionButton disabled"
     searchButton.setAttribute("disabled", "true")
@@ -178,13 +183,15 @@ function rotationPokemon() {
     nextButton.setAttribute("disabled", "true")
     rotationButton.className = "forButtons dimensionButton disabled"
     rotationButton.setAttribute("disabled", "true")
-    interval = setInterval(
-        randomPokemon(), 5000
-    )
+    startRotation();
 }
 //#endregion PLAYROTATION 
 
 //#region STOPROTATION
+function stopRotation() {
+    clearInterval(interval);
+}
+
 function stopRotationPokemon() {
     searchButton.className = "forButtons dimensionButton"
     searchButton.setAttribute("disabled", "false")
@@ -196,7 +203,7 @@ function stopRotationPokemon() {
     nextButton.setAttribute("disabled", "false")
     rotationButton.className = "forButtons dimensionButton"
     rotationButton.setAttribute("disabled", "false")
-    clearInterval();
+    stopRotation();
 }
 //#endregion STOPROTATION 
 
