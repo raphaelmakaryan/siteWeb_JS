@@ -295,6 +295,7 @@ function renderPokemon(valeur, action) {
         favorisButton.className = "noneButtons"
         //& FAVORISIMG
         let favoris = document.createElement("img")
+        favoris.id = "imgHeartFavoris"
         if (favorisPokemon) {
             let search = searchPokemonArray(JSON.parse(favorisPokemon), id)
             if (search === undefined) {
@@ -305,7 +306,6 @@ function renderPokemon(valeur, action) {
         } else {
             favoris.src = "./public/imgs/pokemon/noFavoris.png"
         }
-        favoris.style.width = "100%"
         forInfo.appendChild(divName)
         forInfo.appendChild(divId)
         favorisButton.appendChild(favoris)
@@ -452,7 +452,7 @@ function clickPokemonNews(id) {
 
 //#region CLICKPOKEMONNEWSFEED
 setInterval(() => {
-    pollingPokemon();
+  //  pollingPokemon();
 }, 10000);
 
 function pollingPokemon() {
