@@ -33,6 +33,27 @@
     <section id="forErrorMessage">
     </section>
 
+    <section id="forHistoric">
+        <div id="forArrowHistoric">
+            <button class="noneButtons" id="buttonHistoric" onclick="viewHistoric()">
+                <img src="./public/imgs/pokemon/arrow.png" alt="" id="arrowHistoric">
+            </button>
+        </div>
+        <div id="historic" style="display: none;">
+            <div id="optionsHistoric">
+                <button class="noneButtons" id="buttonCloseHistoric" onclick="closeHistoric()">
+                    <img src="./public/imgs/close.png" alt="" id="closeHistoric">
+                </button>
+                <hr>
+                <p class="ms-1">Historique :</p>
+            </div>
+            <div>
+                <ul id="listPokemonHistoric">
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <section id="forSearchPokemon" class="mt-2 mb-2">
         <div id="forInputSearchPokemon" class="mt-1 mb-1">
             <label for="searchPokemon" id="labelSearchPokemon">Nom Pokémon</label>

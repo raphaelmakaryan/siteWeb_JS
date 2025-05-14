@@ -52,6 +52,59 @@ function verificationHavePokemon(action) {
 }
 //#endregion VERIFICATION
 
+//#region HISTORICTABLE
+
+function stockHistoric(nom) {
+    const historicPokemon = localStorage.getItem("historicPokemon");
+    let historic = []
+    if (!historicPokemon) {
+        historic.push(nom)
+        localStorage.setItem("historicPokemon", JSON.stringify(historic));
+    } else {
+        let newLocal = JSON.parse(historicPokemon)
+        const haveAPokemon = newLocal.find((element) => element === nom);
+        if (haveAPokemon === undefined) {
+            historic = newLocal
+            historic.push(nom)
+            localStorage.setItem("historicPokemon", JSON.stringify(historic));
+        }
+    }
+}
+
+function viewHistoric() {
+    const historic = document.getElementById("historic")
+    const forHistoric = document.getElementById("forHistoric")
+    const forArrowHistoric = document.getElementById("forArrowHistoric")
+    const listPokemonHistoric = document.getElementById("listPokemonHistoric")
+    const historicPokemon = localStorage.getItem("historicPokemon");
+    let allHistoric = JSON.parse(historicPokemon)
+    historic.style.display = "flex"
+    historic.style.width = "50%"
+    forHistoric.style.flexDirection = "row-reverse"
+    forArrowHistoric.style.display = "none"
+    if (allHistoric) {
+        allHistoric.forEach(element => {
+            listPokemonHistoric.innerHTML +=
+                `
+            <li>${element}</li>
+            `
+        });
+    }
+}
+
+function closeHistoric() {
+    const historic = document.getElementById("historic")
+    const forHistoric = document.getElementById("forHistoric")
+    const forArrowHistoric = document.getElementById("forArrowHistoric")
+    const listPokemonHistoric = document.getElementById("listPokemonHistoric")
+    historic.style.display = "none"
+    historic.style.width = ""
+    forHistoric.style.flexDirection = ""
+    forArrowHistoric.style.display = "flex"
+    listPokemonHistoric.innerHTML = ""
+}
+//#endregion HISTORICTABLE
+
 //#region TYPES
 function typesPokemon(data) {
     if (data) {
@@ -78,9 +131,8 @@ function statsPokemon(data) {
 
 //#region INSERTDATA
 function renderPokemon(valeur, action) {
-    let imageFront = valeur.sprites?.front_default || "https://placehold.co/250x250"
-    let imageBack = valeur.sprites?.back_default || "https://placehold.co/250x250"
-    let name = valeur.name
+    let imageFront = (valeur.sprites && (valeur.sprites.front_default || valeur.sprites.other?.['official-artwork']?.front_default)) || "https://placehold.co/250x250";
+    let imageBack = (valeur.sprites && (valeur.sprites.back_default || valeur.sprites.other?.['official-artwork']?.back_default)) || "https://placehold.co/250x250"; let name = valeur.name
     let id = valeur.id
     stockId(id)
     let types = typesPokemon(valeur.types)
@@ -89,6 +141,7 @@ function renderPokemon(valeur, action) {
     if (action === "news") {
         displayNewsFeedPokemon(imageFront, name, id)
     } else {
+        stockHistoric(name)
         //! PRINCIPALE
         let mainDiv = document.createElement("div")
         mainDiv.id = "afterSearchPokemon";
@@ -182,9 +235,7 @@ function loaderFunction(action) {
 //#region PLAYROTATION 
 function startRotation() {
     interval = setInterval(() => {
-        if (divPokemonInfo.children.length != 0) {
-            randomPokemon("rotation");
-        }
+        randomPokemon("rotation");
     }, 5000);
 }
 
