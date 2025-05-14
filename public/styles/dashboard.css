@@ -98,6 +98,11 @@ tbody>tr:nth-of-type(even) {
     display: flex;
 }
 
+#canvaDashboardEvolution {
+    background-color: white;
+    display: flex;
+}
+
 #mainDashboard {
     display: flex;
     flex-direction: column
