@@ -1,0 +1,369 @@
+#forSearchPokemon {
+    display: flex;
+    flex-direction: column;
+}
+
+#formSearchPokemon {
+    display: flex;
+    flex-direction: column;
+}
+
+#forInputSearchPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#labelSearchPokemon {
+    color: var(--blue);
+    margin-bottom: 0.3rem;
+}
+
+#forSumbitSearchPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#forOptionsPokemon {
+    display: flex;
+    flex-direction: column;
+}
+
+#principalOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+#otherOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#forAfterSearchPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#afterSearchPokemon {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+    background-color: white;
+    border-radius: 5%;
+    animation: swingAnim 1s ease 0s 1 normal forwards;
+}
+
+#imgAfterSearchPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#infoAfterSearchPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#infoAfterSearchPokemon>p {
+    margin-bottom: 0.5rem;
+}
+
+#moreInfoAfterSearchPokemon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#typePokemon {
+    display: flex;
+    flex-direction: column;
+}
+
+.listMoreInfo {
+    padding-left: 0.5rem;
+}
+
+.titleInfoPokemon {
+    text-decoration: underline;
+}
+
+#loader {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.loaderRecharge {
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+#forNewsFeedPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newsFeedPokemon {
+    background-color: white;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--blue);
+    border-radius: 5%;
+    animation: bottomBounce 1s ease 0s 1 normal forwards;
+}
+
+#newsFeedPokemon>a {
+    color: unset !important;
+}
+
+#imgNewsFeedPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#infoNewsFeedPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#buttonFavorisFeed {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tableUser {
+    display: flex;
+    flex-direction: row;
+    z-index: 100;
+    position: sticky;
+    top: 10%;
+}
+
+.arrowDivTableUser {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.divTableUser {
+    display: flex;
+}
+
+.buttonTableUser {
+    display: flex;
+    padding: 0;
+}
+
+#buttonFavoris {
+    flex-direction: row;
+}
+
+#listPokemonFavoris {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#listPokemonFavoris>button {
+    padding: 0;
+    width: 25%;
+}
+
+#listPokemonFavoris>button>img {
+    width: 100%;
+}
+
+#imgHeartFavoris {
+    width: 100%;
+}
+
+#buttonHistoric {
+    flex-direction: row-reverse;
+}
+
+.arrowTableUser {
+    background-color: var(--blue);
+    border: 2px solid black;
+    width: 5%;
+    padding: 5px;
+}
+
+.formatTableUser {
+    border: 2px solid black;
+    color: white;
+    background-color: var(--blue);
+    width: 100%;
+    flex-direction: column;
+}
+
+.buttonCloseUserTable {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0;
+}
+
+.imgCloseTableUser {
+    width: 20%;
+}
+
+#forDeleteHistoricButton {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#deleteHistoricButton {
+    background-color: white !important;
+    color: var(--blue) !important;
+}
+
+#themeToggle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/*#region ANIMECSS*/
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fallIn {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fallOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+}
+
+@keyframes swingAnim {
+
+    0%,
+    100% {
+        transform: translateX(0%);
+        transform-origin: 50% 50%;
+    }
+
+    15% {
+        transform: translateX(-30px) rotate(6deg);
+    }
+
+    30% {
+        transform: translateX(15px) rotate(-6deg);
+    }
+
+    45% {
+        transform: translateX(-15px) rotate(3.6deg);
+    }
+
+    60% {
+        transform: translateX(9px) rotate(-2.4deg);
+    }
+
+    75% {
+        transform: translateX(-6px) rotate(1.2deg);
+    }
+}
+
+@keyframes bottomBounce {
+    0% {
+        animation-timing-function: ease-in;
+        opacity: 1;
+        transform: translateY(45px);
+    }
+
+    24% {
+        opacity: 1;
+    }
+
+    40% {
+        animation-timing-function: ease-in;
+        transform: translateY(24px);
+    }
+
+    65% {
+        animation-timing-function: ease-in;
+        transform: translateY(12px);
+    }
+
+    82% {
+        animation-timing-function: ease-in;
+        transform: translateY(6px);
+    }
+
+    93% {
+        animation-timing-function: ease-in;
+        transform: translateY(4px);
+    }
+
+    25%,
+    55%,
+    75%,
+    87% {
+        animation-timing-function: ease-out;
+        transform: translateY(0px);
+    }
+
+    100% {
+        animation-timing-function: ease-out;
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/*#endregion ANIMECSS*/
