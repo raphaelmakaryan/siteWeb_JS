@@ -133,6 +133,18 @@
     color: unset !important;
 }
 
+#imgNewsFeedPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#infoNewsFeedPokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @-webkit-keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);

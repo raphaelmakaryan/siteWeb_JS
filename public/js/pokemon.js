@@ -42,9 +42,11 @@ function clearDisplay() {
 //#endregion DELETEHAVEPOKEMON
 
 //#region VERIFICATION
-function verificationHavePokemon() {
+function verificationHavePokemon(action) {
     if (divPokemonInfo.children.length != 0) {
-        return clearDisplay()
+        if (action != "news") {
+            return clearDisplay()
+        }
     }
     return true
 }
@@ -85,7 +87,7 @@ function renderPokemon(valeur, action) {
 
     if (action === "news") {
         displayNewsFeedPokemon(image, name, id)
-    } else {
+    } else if (action != "news") {
         //! PRINCIPALE
         let mainDiv = document.createElement("div")
         mainDiv.id = "afterSearchPokemon";
@@ -181,15 +183,15 @@ function startRotation() {
 
 function rotationPokemon() {
     searchButton.className = "forButtons dimensionButton disabled"
-    searchButton.setAttribute("disabled", "true")
+    searchButton.ariaDisabled = "true"
     previousButton.className = "forButtons dimensionButton disabled"
-    previousButton.setAttribute("disabled", "true")
+    previousButton.ariaDisabled = "true"
     randomButton.className = "forButtons dimensionButton disabled"
-    randomButton.setAttribute("disabled", "true")
+    randomButton.ariaDisabled = "true"
     nextButton.className = "forButtons dimensionButton disabled"
-    nextButton.setAttribute("disabled", "true")
+    nextButton.ariaDisabled = "true"
     rotationButton.className = "forButtons dimensionButton disabled"
-    rotationButton.setAttribute("disabled", "true")
+    rotationButton.ariaDisabled = "true"
     startRotation();
 }
 //#endregion PLAYROTATION 
@@ -201,15 +203,15 @@ function stopRotation() {
 
 function stopRotationPokemon() {
     searchButton.className = "forButtons dimensionButton"
-    searchButton.setAttribute("disabled", "false")
+    searchButton.ariaDisabled = "false"
     previousButton.className = "forButtons dimensionButton"
-    previousButton.setAttribute("disabled", "false")
+    previousButton.ariaDisabled = "false"
     randomButton.className = "forButtons dimensionButton"
-    randomButton.setAttribute("disabled", "false")
+    randomButton.ariaDisabled = "false"
     nextButton.className = "forButtons dimensionButton"
-    nextButton.setAttribute("disabled", "false")
+    nextButton.ariaDisabled = "false"
     rotationButton.className = "forButtons dimensionButton"
-    rotationButton.setAttribute("disabled", "false")
+    rotationButton.ariaDisabled = "false"
     stopRotation();
 }
 //#endregion STOPROTATION 
@@ -227,20 +229,18 @@ function newsFeed() {
 //#region DISPLAYPOKEMONNEWSFEED
 function displayNewsFeedPokemon(image, nom, id) {
     const news = document.getElementById("forNewsFeedPokemon")
-
     news.innerHTML =
         `
      <div id="newsFeedPokemon">
             <a onclick="${id}">
-                <div id="imgAfterSearchPokemon"><img
+                <div id="imgNewsFeedPokemon"><img
                         src="${image}"></div>
-                <div id="infoAfterSearchPokemon">
+                <div id="infoNewsFeedPokemon">
                     <p>Name : ${nom}</p>
                 </div>
             </a>
         </div>
     `
-    //searchPokemon()
 }
 //#endregion DISPLAYPOKEMONNEWSFEED
 
@@ -298,7 +298,7 @@ function searchPokemon(valeur, action) {
     const valueInput = document.getElementById("inputSearchPokemon")
     let haveValue = valueInput.value
     if (haveValue || valeur != null) {
-        if (verificationHavePokemon()) {
+        if (verificationHavePokemon(action)) {
             fetchPokemon(haveValue || valeur).then(async (donnees) => {
                 if (await loaderFunction(action) === true) {
                     renderPokemon(donnees, action);
