@@ -78,7 +78,8 @@ function statsPokemon(data) {
 
 //#region INSERTDATA
 function renderPokemon(valeur, action) {
-    let image = valeur.sprites?.front_default || "https://placehold.co/250x250"
+    let imageFront = valeur.sprites?.front_default || "https://placehold.co/250x250"
+    let imageBack = valeur.sprites?.back_default || "https://placehold.co/250x250"
     let name = valeur.name
     let id = valeur.id
     stockId(id)
@@ -86,8 +87,8 @@ function renderPokemon(valeur, action) {
     let stats = statsPokemon(valeur.stats)
 
     if (action === "news") {
-        displayNewsFeedPokemon(image, name, id)
-    } else if (action != "news") {
+        displayNewsFeedPokemon(imageFront, name, id)
+    } else {
         //! PRINCIPALE
         let mainDiv = document.createElement("div")
         mainDiv.id = "afterSearchPokemon";
@@ -96,7 +97,11 @@ function renderPokemon(valeur, action) {
         let forImg = document.createElement("div")
         forImg.id = "imgAfterSearchPokemon";
         let img = document.createElement("img")
-        img.src = image
+        if (action === "polling") {
+            img.src = imageBack
+        } else {
+            img.src = imageFront
+        }
         forImg.appendChild(img)
 
         //! Info
@@ -167,7 +172,7 @@ function loaderFunction(action) {
             setTimeout(() => {
                 document.getElementById("loader").style.display = "none";
                 resolve(true);
-            }, 1000);
+            }, 250);
         });
     }
     return false
@@ -250,6 +255,18 @@ function clickPokemonNews(id) {
 }
 //#endregion CLICKPOKEMONNEWSFEED
 
+//#region CLICKPOKEMONNEWSFEED
+setInterval(() => {
+    pollingPokemon();
+}, 10000);
+
+function pollingPokemon() {
+    const getLastID = localStorage.getItem("lastIdPokemon");
+    if (divPokemonInfo.children.length != 0 && getLastID) {
+        searchPokemon(getLastID, "polling")
+    }
+}
+//#endregion CLICKPOKEMONNEWSFEED
 
 //#region API
 async function fetchPokemon(nomOuId) {

@@ -126,7 +126,7 @@
     flex-direction: column;
     border: 2px solid var(--blue);
     border-radius: 5%;
-    animation: bottomBounce 2s ease 0s 1 normal forwards;
+    animation: bottomBounce 0.2s ease 0s 1 normal forwards;
 }
 
 #newsFeedPokemon>a {
