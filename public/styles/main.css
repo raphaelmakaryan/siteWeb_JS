@@ -39,7 +39,7 @@ h1 {
 .forButtons {
     border-radius: var(--radius);
     background-color: var(--blue);
-    color: var(--white);
+    color: white;
     border: solid 2px var(--blue);
     font-size: 0.9rem;
 }
@@ -154,6 +154,12 @@ header {
 }
 
 /*#endregion HEADER*/
+
+/*#region THEME*/
+#theme-toggle {
+    color: white !important;
+}
+/*#endregion THEME*/
 
 /*#region MEDIAQUERYS*/
 

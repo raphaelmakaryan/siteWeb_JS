@@ -107,10 +107,6 @@ tbody>tr:nth-of-type(even) {
     background-color: var(--error) !important;
 }
 
-#theme-toggle {
-    color: white !important;
-}
-
 #dropdownDashboard {
     color: white !important;
 }
