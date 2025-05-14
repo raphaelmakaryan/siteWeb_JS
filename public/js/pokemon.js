@@ -232,7 +232,7 @@ function displayNewsFeedPokemon(image, nom, id) {
     news.innerHTML =
         `
      <div id="newsFeedPokemon">
-            <a onclick="${id}">
+            <a onclick="clickPokemonNews(${id})">
                 <div id="imgNewsFeedPokemon"><img
                         src="${image}"></div>
                 <div id="infoNewsFeedPokemon">
@@ -243,6 +243,13 @@ function displayNewsFeedPokemon(image, nom, id) {
     `
 }
 //#endregion DISPLAYPOKEMONNEWSFEED
+
+//#region CLICKPOKEMONNEWSFEED
+function clickPokemonNews(id) {
+    searchPokemon(id, 'withNews')
+}
+//#endregion CLICKPOKEMONNEWSFEED
+
 
 //#region API
 async function fetchPokemon(nomOuId) {
