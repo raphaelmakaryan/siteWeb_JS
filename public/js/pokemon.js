@@ -182,7 +182,9 @@ function loaderFunction(action) {
 //#region PLAYROTATION 
 function startRotation() {
     interval = setInterval(() => {
-        randomPokemon("rotation");
+        if (divPokemonInfo.children.length != 0) {
+            randomPokemon("rotation");
+        }
     }, 5000);
 }
 
