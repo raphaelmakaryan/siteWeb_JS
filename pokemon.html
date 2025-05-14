@@ -33,26 +33,52 @@
     <section id="forErrorMessage">
     </section>
 
-    <section id="forHistoric">
-        <div id="forArrowHistoric">
-            <button class="noneButtons" id="buttonHistoric" onclick="viewHistoric()">
-                <img src="./public/imgs/pokemon/arrow.png" alt="" id="arrowHistoric">
-            </button>
-        </div>
-        <div id="historic" style="display: none;">
-            <div id="optionsHistoric">
-                <button class="noneButtons" id="buttonCloseHistoric" onclick="closeHistoric()">
-                    <img src="./public/imgs/close.png" alt="" id="closeHistoric">
+    <section id="tableUser">
+        <section id="forFavoris" class="divTableUser">
+            <div id="forArrowFavoris" class="arrowDivTableUser">
+                <button class="noneButtons buttonTableUser" id="buttonFavoris" onclick="viewFavoris()">
+                    <img src="./public/imgs/pokemon/rightArrow.png" alt="" id="arrowFavoris" class="arrowTableUser">
                 </button>
-                <hr>
-                <p class="ms-1">Historique :</p>
             </div>
-            <div>
-                <ul id="listPokemonHistoric">
-                </ul>
+            <div id="favoris" class="formatTableUser" style="display: none;">
+                <div id="optionsFavoris">
+                    <button class="noneButtons buttonCloseUserTable " id="buttonCloseFavoris" onclick="closeFavoris()">
+                        <img src="./public/imgs/close.png" alt="" class="imgCloseTableUser" id="closeHistoricFavoris">
+                    </button>
+                    <hr>
+                    <p class="ms-1">Favoris :</p>
+                </div>
+                <div id="listPokemonFavoris" class="mb-1">
+                </div>
             </div>
-        </div>
+        </section>
+
+        <section id="forHistoric" class="divTableUser">
+            <div id="forArrowHistoric" class="arrowDivTableUser">
+                <button class="noneButtons buttonTableUser" id="buttonHistoric" onclick="viewHistoric()">
+                    <img src="./public/imgs/pokemon/leftArrow.png" alt="" id="arrowHistoric" class="arrowTableUser">
+                </button>
+            </div>
+            <div id="historic" class="formatTableUser" style="display: none;">
+                <div id="optionsHistoric">
+                    <button class="noneButtons buttonCloseUserTable " id="buttonCloseHistoric"
+                        onclick="closeHistoric()">
+                        <img src="./public/imgs/close.png" alt="" class="imgCloseTableUser" id="closeHistoric">
+                    </button>
+                    <hr>
+                    <p class="ms-1">Historique :</p>
+                </div>
+                <div>
+                    <ul id="listPokemonHistoric">
+                    </ul>
+                </div>
+                <div id="forDeleteHistoricButton">
+                    <button id="deleteHistoricButton" class="forButtons dimensionButton" onclick="deleteHistoric()">Clear</button>
+                </div>
+            </div>
+        </section>
     </section>
+
 
     <section id="forSearchPokemon" class="mt-2 mb-2">
         <div id="forInputSearchPokemon" class="mt-1 mb-1">

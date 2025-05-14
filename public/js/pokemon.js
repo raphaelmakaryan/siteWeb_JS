@@ -9,6 +9,12 @@ let rotationButton = document.getElementById("rotationButton")
 let interval;
 //#endregion VARIABLES
 
+//#region SEARCHPOKEMONARRAY
+function searchPokemonArray(tab, search) {
+    return tab.find((element) => element === search);
+}
+//#endregion SEARCHPOKEMONARRAY
+
 //#region STOCK ID
 function stockId(id) {
     const getLastID = localStorage.getItem("lastIdPokemon");
@@ -53,7 +59,6 @@ function verificationHavePokemon(action) {
 //#endregion VERIFICATION
 
 //#region HISTORICTABLE
-
 function stockHistoric(nom) {
     const historicPokemon = localStorage.getItem("historicPokemon");
     let historic = []
@@ -62,7 +67,7 @@ function stockHistoric(nom) {
         localStorage.setItem("historicPokemon", JSON.stringify(historic));
     } else {
         let newLocal = JSON.parse(historicPokemon)
-        const haveAPokemon = newLocal.find((element) => element === nom);
+        const haveAPokemon = searchPokemonArray(newLocal, nom)
         if (haveAPokemon === undefined) {
             historic = newLocal
             historic.push(nom)
@@ -76,19 +81,26 @@ function viewHistoric() {
     const forHistoric = document.getElementById("forHistoric")
     const forArrowHistoric = document.getElementById("forArrowHistoric")
     const listPokemonHistoric = document.getElementById("listPokemonHistoric")
+    const forArrowFavoris = document.getElementById("forArrowFavoris")
     const historicPokemon = localStorage.getItem("historicPokemon");
-    let allHistoric = JSON.parse(historicPokemon)
+    forArrowFavoris.style.display = "none"
     historic.style.display = "flex"
     historic.style.width = "50%"
     forHistoric.style.flexDirection = "row-reverse"
     forArrowHistoric.style.display = "none"
-    if (allHistoric) {
+    if (historicPokemon) {
+        let allHistoric = JSON.parse(historicPokemon)
         allHistoric.forEach(element => {
             listPokemonHistoric.innerHTML +=
                 `
-            <li>${element}</li>
-            `
+                <li>${element}</li>
+                `
         });
+    } else {
+        listPokemonHistoric.innerHTML +=
+            `
+        <li>Aucun pokémon dans l'historique</li>
+        `
     }
 }
 
@@ -97,13 +109,95 @@ function closeHistoric() {
     const forHistoric = document.getElementById("forHistoric")
     const forArrowHistoric = document.getElementById("forArrowHistoric")
     const listPokemonHistoric = document.getElementById("listPokemonHistoric")
+    const forArrowFavoris = document.getElementById("forArrowFavoris")
+    forArrowFavoris.style.display = "flex"
     historic.style.display = "none"
     historic.style.width = ""
     forHistoric.style.flexDirection = ""
     forArrowHistoric.style.display = "flex"
     listPokemonHistoric.innerHTML = ""
 }
+
+function deleteHistoric() {
+    localStorage.setItem("historicPokemon", "");
+    closeHistoric()
+}
 //#endregion HISTORICTABLE
+
+//#region FAVORISTABLE
+function stockFavoris(id) {
+    const favorisPokemon = localStorage.getItem("favorisPokemon");
+    let favoris = []
+    if (!favorisPokemon) {
+        favoris.push(id)
+        localStorage.setItem("favorisPokemon", JSON.stringify(favoris));
+    } else {
+        let newLocal = JSON.parse(favorisPokemon)
+        const haveAPokemon = searchPokemonArray(newLocal, id)
+        if (haveAPokemon === undefined) {
+            favoris = newLocal
+            favoris.push(id)
+            localStorage.setItem("favorisPokemon", JSON.stringify(favoris));
+        } else {
+            const index = newLocal.findIndex((ele) => ele === id);
+            let newTab = newLocal.splice(index, index)
+            favoris = newTab
+            localStorage.setItem("favorisPokemon", JSON.stringify(favoris));
+        }
+    }
+}
+
+function viewFavoris() {
+    const favoris = document.getElementById("favoris")
+    const forFavoris = document.getElementById("forFavoris")
+    const forArrowFavoris = document.getElementById("forArrowFavoris")
+    const listPokemonFavoris = document.getElementById("listPokemonFavoris")
+    const forArrowHistoric = document.getElementById("forArrowHistoric")
+    const favorisPokemon = localStorage.getItem("favorisPokemon");
+    forArrowFavoris.style.display = "none"
+    favoris.style.display = "flex"
+    favoris.style.width = "50%"
+    forFavoris.style.flexDirection = "row"
+    forArrowHistoric.style.display = "none"
+    if (listPokemonFavoris) {
+        let allFavoris = JSON.parse(favorisPokemon)
+        if (allFavoris != null && allFavoris.length >= 1) {
+            allFavoris.forEach(element => {
+                listPokemonFavoris.innerHTML +=
+                    `
+                <button class="noneButtons " id="" onclick="searchPokemon(${element})">
+                <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${element}.png'>
+                </button>
+                `
+            });
+        } else {
+            listPokemonFavoris.innerHTML +=
+                `
+            <p>Aucun pokémon en favori</p>
+            `
+        }
+    } else {
+        listPokemonFavoris.innerHTML +=
+            `
+        <p>Aucun pokémon en favori</p>
+        `
+    }
+}
+
+function closeFavoris() {
+    const favoris = document.getElementById("favoris")
+    const forFavoris = document.getElementById("forFavoris")
+    const forArrowFavoris = document.getElementById("forArrowFavoris")
+    const forArrowHistoric = document.getElementById("forArrowHistoric")
+    const listPokemonFavoris = document.getElementById("listPokemonFavoris")
+    favoris.style.display = "none"
+    favoris.style.width = ""
+    forFavoris.style.flexDirection = ""
+    forArrowFavoris.style.display = "flex"
+    forArrowHistoric.style.display = "flex"
+    listPokemonFavoris.innerHTML = ""
+}
+//#endregion FAVORISTABLE
 
 //#region TYPES
 function typesPokemon(data) {
@@ -131,8 +225,10 @@ function statsPokemon(data) {
 
 //#region INSERTDATA
 function renderPokemon(valeur, action) {
-    let imageFront = (valeur.sprites && (valeur.sprites.front_default || valeur.sprites.other?.['official-artwork']?.front_default)) || "https://placehold.co/250x250";
-    let imageBack = (valeur.sprites && (valeur.sprites.back_default || valeur.sprites.other?.['official-artwork']?.back_default)) || "https://placehold.co/250x250"; let name = valeur.name
+    const favorisPokemon = localStorage.getItem("favorisPokemon");
+    let imageFront = valeur?.sprites?.front_default || "https://placehold.co/250x250";
+    let imageBack = valeur?.sprites?.back_default || "https://placehold.co/250x250";
+    let name = valeur?.name;
     let id = valeur.id
     stockId(id)
     let types = typesPokemon(valeur.types)
@@ -160,14 +256,37 @@ function renderPokemon(valeur, action) {
         //! Info
         let forInfo = document.createElement("div")
         forInfo.id = "infoAfterSearchPokemon";
+        //& Nom
         let divName = document.createElement("p")
         divName.innerText = `Name : ${name}`;
+        //& ID
         let divId = document.createElement("p")
         divId.innerText = `ID : ${id}`;
+        //& SEPAR
         let separation = document.createElement("hr")
         separation.style.width = "100%";
+        //& BUTTONFAVORIS
+        let favorisButton = document.createElement("button")
+        favorisButton.onclick = () => stockFavoris(id);
+        favorisButton.id = "buttonFavorisFeed"
+        favorisButton.className = "noneButtons"
+        //& FAVORISIMG
+        let favoris = document.createElement("img")
+        if (favorisPokemon) {
+            let search = searchPokemonArray(JSON.parse(favorisPokemon), id)
+            if (search === undefined) {
+                favoris.src = "./public/imgs/pokemon/noFavoris.png"
+            } else {
+                favoris.src = "./public/imgs/pokemon/favoris.png"
+            }
+        } else {
+            favoris.src = "./public/imgs/pokemon/noFavoris.png"
+        }
+        favoris.style.width = "100%"
         forInfo.appendChild(divName)
         forInfo.appendChild(divId)
+        favorisButton.appendChild(favoris)
+        forInfo.appendChild(favorisButton)
         forInfo.appendChild(separation)
 
         //! MoreInfo

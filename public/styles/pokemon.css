@@ -145,34 +145,67 @@
     margin-bottom: 1rem;
 }
 
-#forHistoric {
-    z-index: 100;
-    position: sticky;
-    top: 15%;
+#buttonFavorisFeed {
+    width: 15%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 }
 
-#forArrowHistoric {
+#tableUser {
+    display: flex;
+    flex-direction: row;
+    z-index: 100;
+    position: sticky;
+    top: 10%;
+}
+
+.arrowDivTableUser {
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
 }
 
-#buttonHistoric {
+.divTableUser {
     display: flex;
-    flex-direction: row-reverse;
+}
+
+.buttonTableUser {
+    display: flex;
     padding: 0;
 }
 
-#arrowHistoric {
+#buttonFavoris {
+    flex-direction: row;
+}
+
+#listPokemonFavoris {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#listPokemonFavoris>button {
+    padding: 0;
+    width: 25%;
+}
+
+#listPokemonFavoris>button>img {
+    width: 100%;
+}
+
+#buttonHistoric {
+    flex-direction: row-reverse;
+}
+
+.arrowTableUser {
     background-color: var(--blue);
     border: 2px solid black;
     width: 5%;
     padding: 5px;
 }
 
-#historic {
+.formatTableUser {
     border: 2px solid black;
     color: white;
     background-color: var(--blue);
@@ -180,15 +213,27 @@
     flex-direction: column;
 }
 
-#buttonCloseHistoric {
+.buttonCloseUserTable {
     display: flex;
     flex-direction: row-reverse;
     padding: 0;
 }
 
-#closeHistoric {
+.imgCloseTableUser {
     width: 20%;
 }
+
+#forDeleteHistoricButton {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#deleteHistoricButton {
+    background-color: white !important;
+    color: var(--blue) !important;
+}
+
 
 /*#region ANIMECSS*/
 @-webkit-keyframes spin {
